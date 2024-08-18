@@ -2,10 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Capturer : MonoBehaviour
+public class Capturer : Singleton<Capturer>
 {
     public Camera cam;
-    public Material mat;
     public int imgWidth, imgHeight;
     [ContextMenu("capture")]
     public void Capture()
@@ -22,22 +21,31 @@ public class Capturer : MonoBehaviour
         cam.cullingMask = LayerMask.GetMask("Brisk");
         cam.Render();
         Texture2D brisktex = RT2Tex2D(rt);
-        mat.SetTexture("_MainTex", brisktex);
+        cam.cullingMask = LayerMask.GetMask("AnimalInv");
+        cam.Render();
+        Texture2D animalInvtex = RT2Tex2D(rt);
         cam.gameObject.SetActive(false);
-        AnalyzeTex(animaltex, animaltex, brisktex);
+        AnalyzeTex(animalInvtex, animaltex, brisktex);
     }
     void AnalyzeTex(Texture2D animal_inverse, Texture2D animal, Texture2D brisk)
     {
+        Color[] animInvPixels = animal_inverse.GetPixels();
         Color[] animpixels = animal.GetPixels();
         Color[] briskpixels = brisk.GetPixels();
         Color transparent = new Color(0, 0, 0, 0);
-        int overlaps = 0;
-        for(int i = animpixels.Length - 1; i >= 0; --i)
+        int totalNumPixelsCovered = 0, numPixelsCovered = 0, numPixelsTransparent = 0;
+        for(int i = briskpixels.Length - 1; i >= 0; --i)
         {
-            if (animpixels[i] != transparent && briskpixels[i] != transparent)
-                ++overlaps;
+            if (animInvPixels[i]==transparent && animpixels[i] == transparent)
+            {
+                ++numPixelsTransparent;
+                if (briskpixels[i] != transparent)
+                    ++numPixelsCovered;
+            }
+            if (briskpixels[i] != transparent)
+                ++totalNumPixelsCovered;
         }
-        Debug.Log($"texture size=({animal.width},{animal.height}), overlaps={overlaps}");
+        Debug.Log($"total pixels covered={totalNumPixelsCovered}, transparent pixels={numPixelsTransparent}, num pixels covered={numPixelsCovered}, covered percent={(float)numPixelsCovered / numPixelsTransparent}"); ;
     }
     Texture2D RT2Tex2D(RenderTexture rt)
     {

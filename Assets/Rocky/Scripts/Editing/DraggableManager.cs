@@ -37,7 +37,6 @@ public class DraggableManager : Singleton<DraggableManager>
         {
             GameObject but = Instantiate(buttonPrefab);
             BriskButton bb = but.GetComponent<BriskButton>();
-            Debug.Log(bb.name);
             bb.BriskPrefab = briskInventory.brisks[i];
             but.transform.SetParent(briskPanelUI.transform, false);
         }
