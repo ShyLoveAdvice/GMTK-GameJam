@@ -14,5 +14,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   brisks:
   - {fileID: 3091433222819715362, guid: fec01b9e8a7cfae408f5b1129b65c9c2, type: 3}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 1427842149960122278, guid: 17293267c03297b4eab9d5d87991e250, type: 3}
+  - {fileID: 1733172604718371988, guid: 37ac799664a98e24fb0d6c1a49c80c4d, type: 3}
+  - {fileID: 1008141966534490706, guid: b0b6d92148843b84b9214b9a43494e60, type: 3}
+  - {fileID: 8448382224453907039, guid: 23902ba89cf6c6c40b85d2bc44a2db62, type: 3}
+  - {fileID: 5031341566405328955, guid: 9caf26ae8957e4a45b81d71563f22d6f, type: 3}
+  - {fileID: 1885664935226013476, guid: 0199cf05a371da248af3486c8a9143d5, type: 3}
