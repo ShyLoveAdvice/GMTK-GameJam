@@ -47,11 +47,11 @@ public class EditingToolElement : MonoBehaviour
     }
     private void OnEnable()
     {
-        EditingTool.instance.onTransformUpdated += AdjustGlobalScale;
+        EditingTool.instance.onEditted += AdjustGlobalScale;
     }
     private void OnDisable()
     {
-        EditingTool.instance.onTransformUpdated -= AdjustGlobalScale;
+        EditingTool.instance.onEditted -= AdjustGlobalScale;
     }
     
     bool MouseOnElement()

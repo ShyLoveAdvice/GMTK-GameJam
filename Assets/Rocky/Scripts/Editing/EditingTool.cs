@@ -12,7 +12,7 @@ public class EditingTool : Singleton<EditingTool>
     [SerializeField] float rotatingSpeed;
     [SerializeField] float minScale, maxScale;
 
-    public event System.Action onTransformUpdated;
+    public event System.Action onEditted;
     //editing variables
     Vector3 scalingOffset;
     Quaternion rotationOffset, rotationOffsetNeg;
@@ -72,17 +72,7 @@ public class EditingTool : Singleton<EditingTool>
         transform.localScale = targetObj.localScale;
         transform.rotation = targetObj.rotation;
         dotLines.SetPositions(GetBoundingPoints());
-        onTransformUpdated?.Invoke();
-    }
-    void SellObject()
-    {
-        Destroy(targetObj.gameObject);
-        targetObj = null;
-        gameObject.SetActive(false);
-    }
-    public void CreateObject(GameObject prefab)
-    {
-        GameObject ins = Instantiate(prefab);
+        onEditted?.Invoke();
     }
     public void SetObjRotation(Quaternion rotation)
     {
@@ -122,7 +112,7 @@ public class EditingTool : Singleton<EditingTool>
             }
             if (Input.GetKey(KeyCode.Delete))
             {
-                SellObject();
+                DraggableManager.instance.SellObject();
             }
         }
     }

@@ -6,7 +6,17 @@ public class GameManager : Singleton<GameManager>
 {
     public CameraController camCtrl;
     public Animal[] animals;
-    public Transform follow;
+    public Transform follow;// debug
+
+    private float money;
+    public float Money
+    {
+        get => money;
+        set
+        {
+            money = value;
+        }
+    }
     void ChooseAnimal(Vector2 mousePos)
     {
         float minDist = float.MaxValue;

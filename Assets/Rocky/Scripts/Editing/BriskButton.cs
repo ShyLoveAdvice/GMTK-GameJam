@@ -21,7 +21,7 @@ public class BriskButton : MonoBehaviour
             if (button == null)
                 button = GetComponent<Button>();
             button.onClick.AddListener(() => { 
-                DraggableManager.instance.editingTool.CreateObject(briskPrefab); 
+                DraggableManager.instance.CreateObject(briskPrefab); 
             });
         }
     }

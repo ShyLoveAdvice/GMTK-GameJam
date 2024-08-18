@@ -6,6 +6,7 @@ using UnityEngine.EventSystems;
 
 public class DraggableObjects : MonoBehaviour
 {
+    [SerializeField] float price;
     Collider2D bc;
     Rigidbody2D rb;
     Camera mainCam;
@@ -23,9 +24,17 @@ public class DraggableObjects : MonoBehaviour
         mainCam = Camera.main;
         mouseLeftButDownTimer = 0.0f;
     }
+    public float GetScaledPrice()
+    {
+        float ratio = Mathf.Clamp(transform.localScale.x, 0.25f, 4.0f);
+        if (ratio > 1) //larger
+            return price * (1 + (ratio - 1) / 6);
+        //smaller
+        return price * ratio;
+    }
     public void EnableCollider(bool val)
     {
-        bc.isTrigger = val;
+        bc.isTrigger = !val;
     }
 
     // Update is called once per frame
