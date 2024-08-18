@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEditor;
 using UnityEngine;
 using UnityEngine.UI;
@@ -10,17 +11,47 @@ public class DraggableManager : Singleton<DraggableManager>
     public BriskInventory briskInventory;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform briskPanelUI;
+    [SerializeField] TextMeshProUGUI priceText;
 
+    float priceSum;
     private DraggableObjects selectedObject;
+    private List<DraggableObjects> brisks;
+    public float PriceSum{
+        get => priceSum;
+    }
     public DraggableObjects SelectedObject
     {
         get => selectedObject;
         set
         {
+            if (value == null && selectedObject!=null)
+                selectedObject.EnableCollider(true);
             selectedObject = value;
             if (value != null)
+            {
                 InitializeTool();
+                selectedObject.EnableCollider(false);
+            }
+            else
+                DisableTool();
         }
+    }
+    public void SetAnimal()
+    {
+        priceSum = 0;
+    }
+    public void CalculatePriceSum()
+    {
+        priceSum = 0;
+        for(int i=0;i<brisks.Count; i++)
+        {
+            priceSum += brisks[i].GetScaledPrice();
+        }
+    }
+    public void UpdatePriceText()
+    {
+        CalculatePriceSum();
+        priceText.text = priceSum.ToString("F2");
     }
     void InitializeTool()
     {
@@ -31,8 +62,25 @@ public class DraggableManager : Singleton<DraggableManager>
     {
         editingTool.gameObject.SetActive(false);
     }
+    public void CreateObject(GameObject prefab)
+    {
+        GameObject ins = Instantiate(prefab);
+        brisks.Add(ins.GetComponent<DraggableObjects>());
+        UpdatePriceText();
+    }
+    public void SellObject()
+    {
+        int i = brisks.IndexOf(selectedObject);
+        brisks[i] = brisks[brisks.Count - 1];
+        brisks.RemoveAt(brisks.Count - 1);
+        Destroy(selectedObject.gameObject);
+        SelectedObject = null;
+        UpdatePriceText();
+    }
     private void Start()
     {
+        brisks = new List<DraggableObjects>();
+        editingTool.onEditted += UpdatePriceText;
         for (int i = 0; i < briskInventory.brisks.Length; ++i)
         {
             GameObject but = Instantiate(buttonPrefab);
@@ -46,8 +94,7 @@ public class DraggableManager : Singleton<DraggableManager>
     {
         if (Input.GetMouseButtonDown(1)) //deselect
         {
-            selectedObject = null;
-            DisableTool();
+            SelectedObject = null;
         }
     }
     private void FixedUpdate()
