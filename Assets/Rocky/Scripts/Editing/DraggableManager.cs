@@ -17,9 +17,14 @@ public class DraggableManager : Singleton<DraggableManager>
         get => selectedObject;
         set
         {
+            if (value == null)
+                selectedObject.EnableCollider(true);
             selectedObject = value;
             if (value != null)
+            {
                 InitializeTool();
+                selectedObject.EnableCollider(false);
+            }
         }
     }
     void InitializeTool()

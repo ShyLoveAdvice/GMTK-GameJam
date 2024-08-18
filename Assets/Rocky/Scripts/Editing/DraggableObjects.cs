@@ -23,6 +23,10 @@ public class DraggableObjects : MonoBehaviour
         mainCam = Camera.main;
         mouseLeftButDownTimer = 0.0f;
     }
+    public void EnableCollider(bool val)
+    {
+        bc.isTrigger = val;
+    }
 
     // Update is called once per frame
     void Update()
