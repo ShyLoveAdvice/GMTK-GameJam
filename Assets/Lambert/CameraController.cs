@@ -43,17 +43,13 @@ public class CameraController : Singleton<CameraController>
             if(Vector3.Distance(transform.position, target_lerp_pos) > 0.1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, target_lerp_pos, lerp_pos_speed * Time.deltaTime);
-            }
-
-            if(Mathf.Abs(m_camera.orthographicSize - target_lerp_size) > 0.1f)
-            {
                 activeVirtualCam.m_Lens.OrthographicSize += lerp_size_speed * Time.deltaTime;
             }
-            
-            if(Vector3.Distance(transform.position, target_lerp_pos) < 0.1f && Mathf.Abs(m_camera.orthographicSize - target_lerp_size) < 0.1f)
+
+            if(Vector3.Distance(transform.position, target_lerp_pos) < 0.1f)
             {
-                transform.position = target_lerp_pos;
                 activeVirtualCam.m_Lens.OrthographicSize = target_lerp_size;
+                transform.position = target_lerp_pos;
                 lerping = false;
             }
 
