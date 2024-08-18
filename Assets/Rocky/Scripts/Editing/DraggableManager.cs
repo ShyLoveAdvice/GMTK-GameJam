@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class DraggableManager : Singleton<DraggableManager>
 {
+    public Animal animal;
     public EditingTool editingTool;
     public BriskInventory briskInventory;
     [SerializeField] GameObject buttonPrefab;
@@ -36,9 +37,35 @@ public class DraggableManager : Singleton<DraggableManager>
                 DisableTool();
         }
     }
-    public void SetAnimal()
+    public void GetScore()
     {
-        priceSum = 0;
+        if (animal == null)
+            return;
+        if (animal.HomeIsComplete())
+        {
+            Capturer.instance.Capture(animal.transform.position);
+        }
+        else
+            Debug.Log("home incomplete!");
+    }
+    public void SetAnimal(Animal anim)
+    {
+        if (anim == null)
+        {
+            foreach(DraggableObjects e in brisks)
+            {
+                Destroy(e.gameObject);
+            }
+            brisks.Clear();
+            briskPanelUI.gameObject.SetActive(false);
+        }
+        else
+        {
+            priceSum = 0;
+            animal = anim;
+            briskPanelUI.gameObject.SetActive(true);
+            UpdatePriceText();
+        }
     }
     public void CalculatePriceSum()
     {

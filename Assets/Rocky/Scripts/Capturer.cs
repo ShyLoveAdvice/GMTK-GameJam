@@ -6,10 +6,10 @@ public class Capturer : Singleton<Capturer>
 {
     public Camera cam;
     public int imgWidth, imgHeight;
-    [ContextMenu("capture")]
-    public void Capture()
+    public void Capture(Vector2 camPosition)
     {
         cam.gameObject.SetActive(true);
+        cam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
         RenderTexture rt = new RenderTexture(imgWidth, imgHeight, 16);
         rt.Create();
         cam.clearFlags = CameraClearFlags.Color;
