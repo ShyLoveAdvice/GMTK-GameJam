@@ -7,6 +7,10 @@ using UnityEngine.EventSystems;
 public class DraggableObjects : MonoBehaviour
 {
     [SerializeField] float price;
+    [Header("Bounding Box")]
+    public Vector2 leftTop;
+    public Vector2 rightBottom;
+
     Collider2D bc;
     Rigidbody2D rb;
     Camera mainCam;
@@ -16,6 +20,10 @@ public class DraggableObjects : MonoBehaviour
     bool selected = false;
     Vector3 draggingOffset;
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.DrawWireCube((leftTop + rightBottom / 2) + (Vector2)transform.position, leftTop - rightBottom);
+    }
     // Start is called before the first frame update
     void Start()
     {

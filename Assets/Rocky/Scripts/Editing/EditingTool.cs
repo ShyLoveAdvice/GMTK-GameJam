@@ -49,7 +49,8 @@ public class EditingTool : Singleton<EditingTool>
     Vector3[] GetBoundingPoints()
     {
         Vector3[] points = new Vector3[5];
-        Vector2 halfSize = transform.localScale / 2;
+        Vector2 halfSize = transform.localScale;
+        //halfSize.x*=targetObj
         Vector3 center = transform.position;
         //points[0] = new Vector2(center.x - halfSize.x, center.y + halfSize.y);
         //points[1] = new Vector2(center.x + halfSize.x, center.y + halfSize.y);
