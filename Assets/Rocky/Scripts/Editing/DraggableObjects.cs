@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEditor;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.EventSystems;
@@ -20,9 +21,11 @@ public class DraggableObjects : MonoBehaviour
     bool selected = false;
     Vector3 draggingOffset;
 
+    
     private void OnDrawGizmosSelected()
     {
-        Gizmos.DrawWireCube((leftTop + rightBottom / 2) + (Vector2)transform.position, leftTop - rightBottom);
+        Gizmos.color = Color.green;
+        Gizmos.DrawWireCube((leftTop + rightBottom)/2 + (Vector2)transform.position, leftTop - rightBottom);
     }
     // Start is called before the first frame update
     void Start()
@@ -81,6 +84,25 @@ public class DraggableObjects : MonoBehaviour
     void OnDragging()
     {
         rb.position = draggingOffset + mainCam.ScreenToWorldPoint(Input.mousePosition);
-        DraggableManager.instance.editingTool.TargetObj=transform;
+        DraggableManager.instance.editingTool.TargetObj=this;
+    }
+    public Vector3[] GetBoundingPoints()
+    {
+        Vector3[] ret = new Vector3[5];
+        Vector2 halfSize = leftTop - rightBottom;
+        Vector2 center = (leftTop + rightBottom) / 2;
+        Quaternion rotation = transform.rotation;
+        halfSize.x = Mathf.Abs(halfSize.x) / 2 * transform.localScale.x;
+        halfSize.y = Mathf.Abs(halfSize.y) / 2 * transform.localScale.y;
+        ret[0] = new Vector3(center.x - halfSize.x, center.y + halfSize.y);
+        ret[1] = new Vector3(center.x + halfSize.x, center.y + halfSize.y);
+        ret[2] = new Vector3(center.x + halfSize.x, center.y - halfSize.y);
+        ret[3] = new Vector3(center.x - halfSize.x, center.y - halfSize.y);
+        for(int i = 0; i < 4; ++i)
+        {
+            ret[i] = rotation * ret[i] + transform.position;
+        }
+        ret[4] = ret[0];
+        return ret;
     }
 }

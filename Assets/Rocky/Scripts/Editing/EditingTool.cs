@@ -29,8 +29,8 @@ public class EditingTool : Singleton<EditingTool>
         get => rotationOffsetNeg;
     }
 
-    Transform targetObj;
-    public Transform TargetObj
+    DraggableObjects targetObj;
+    public DraggableObjects TargetObj
     {
         get => targetObj;
         set
@@ -46,44 +46,23 @@ public class EditingTool : Singleton<EditingTool>
         rotationOffsetNeg = Quaternion.AngleAxis(rotatingSpeed, Vector3.forward);
         gameObject.SetActive(false);
     }
-    Vector3[] GetBoundingPoints()
-    {
-        Vector3[] points = new Vector3[5];
-        Vector2 halfSize = transform.localScale;
-        //halfSize.x*=targetObj
-        Vector3 center = transform.position;
-        //points[0] = new Vector2(center.x - halfSize.x, center.y + halfSize.y);
-        //points[1] = new Vector2(center.x + halfSize.x, center.y + halfSize.y);
-        //points[2] = new Vector2(center.x + halfSize.x, center.y - halfSize.y);
-        //points[3] = new Vector2(center.x - halfSize.x, center.y - halfSize.y);
-        points[0] = new Vector2(-halfSize.x, halfSize.y);
-        points[1] = new Vector2(halfSize.x, halfSize.y);
-        points[2] = new Vector2(halfSize.x, -halfSize.y);
-        points[3] = new Vector2(-halfSize.x, -halfSize.y);
-        for(int i = 0; i < 4; ++i)
-        {
-            points[i] = transform.rotation * points[i] + center;
-        }
-        points[4] = points[0];
-        return points;
-    }
     public void UpdateTransform()
     {
-        transform.position = targetObj.position;
-        transform.localScale = targetObj.localScale;
-        transform.rotation = targetObj.rotation;
-        dotLines.SetPositions(GetBoundingPoints());
+        transform.position = targetObj.transform.position;
+        transform.localScale = targetObj.transform.localScale;
+        transform.rotation = targetObj.transform.rotation;
+        dotLines.SetPositions(targetObj.GetBoundingPoints());
         onEditted?.Invoke();
     }
     public void SetObjRotation(Quaternion rotation)
     {
-        targetObj.rotation = rotation;
+        targetObj.transform.rotation = rotation;
         UpdateTransform();
     }
     public void SetObjScale(float scale)
     {
         scale = Mathf.Clamp(scale, minScale, maxScale);
-        targetObj.localScale = new Vector3(scale, scale, 1);
+        targetObj.transform.localScale = new Vector3(scale, scale, 1);
         UpdateTransform();
     }
     private void FixedUpdate()
@@ -93,22 +72,22 @@ public class EditingTool : Singleton<EditingTool>
             //scaling
             if (Input.GetKey(KeyCode.W)) //up
             {
-                targetObj.localScale += scalingOffset;
+                targetObj.transform.localScale += scalingOffset;
                 UpdateTransform();
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                targetObj.localScale -= scalingOffset;
+                targetObj.transform.localScale -= scalingOffset;
                 UpdateTransform();
             }
             if (Input.GetKey(KeyCode.D))
             {
-                targetObj.rotation *= rotationOffset;
+                targetObj.transform.rotation *= rotationOffset;
                 UpdateTransform();
             }
             else if (Input.GetKey(KeyCode.A))
             {
-                targetObj.rotation *= rotationOffsetNeg;
+                targetObj.transform.rotation *= rotationOffsetNeg;
                 UpdateTransform();
             }
             if (Input.GetKey(KeyCode.Delete))

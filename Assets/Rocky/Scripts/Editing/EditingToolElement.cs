@@ -93,7 +93,7 @@ public class EditingToolElement : MonoBehaviour
                     break;
                 default:
                 {
-                    scaleBaseLength = ((Vector2)mouseOffset).magnitude/EditingTool.instance.TargetObj.localScale.x;
+                    scaleBaseLength = ((Vector2)mouseOffset).magnitude/EditingTool.instance.TargetObj.transform.localScale.x;
                     break;
                 }
             }
