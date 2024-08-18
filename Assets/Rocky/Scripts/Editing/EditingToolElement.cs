@@ -35,12 +35,10 @@ public class EditingToolElement : MonoBehaviour
         bc = GetComponent<BoxCollider2D>();
         mainCam = Camera.main;
         globalScale = transform.lossyScale;
-        Debug.Log($"active={gameObject.activeSelf}, globalscale={globalScale}");
     }
     void AdjustGlobalScale()
     {
         Vector3 editingToolScale = EditingTool.instance.transform.localScale;
-        Debug.Log($"global scale={globalScale}, parent scale={editingToolScale}");
         transform.localScale = new Vector3(globalScale.x / editingToolScale.x, globalScale.y / editingToolScale.y, globalScale.z / editingToolScale.z);
     }
     private void OnEnable()
