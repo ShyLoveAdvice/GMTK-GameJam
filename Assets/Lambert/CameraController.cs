@@ -56,6 +56,7 @@ public class CameraController : Singleton<CameraController>
             
         }
     }
+    [Button]
     public void ResizeNReposeCamera(Transform leftMost, Transform rightMost, float width)
     {
         target_lerp_pos = (rightMost.position + leftMost.position) / 2f;
