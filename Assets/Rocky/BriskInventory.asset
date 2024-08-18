@@ -1,0 +1,16 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2eeabc85a5c13424ea781a179c92259f, type: 3}
+  m_Name: BriskInventory
+  m_EditorClassIdentifier: 
+  brisks:
+  - {fileID: 3091433222819715362, guid: fec01b9e8a7cfae408f5b1129b65c9c2, type: 3}
