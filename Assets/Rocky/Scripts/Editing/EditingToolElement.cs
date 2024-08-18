@@ -19,6 +19,7 @@ public class EditingToolElement : MonoBehaviour
         ScaleRB
     }
     public EditType editType;
+    public bool globalScaleRemains;
     /// <summary>
     /// editing tool elements should keep their global scales constant.
     /// </summary>
@@ -38,8 +39,11 @@ public class EditingToolElement : MonoBehaviour
     }
     void AdjustGlobalScale()
     {
-        Vector3 editingToolScale = EditingTool.instance.transform.localScale;
-        transform.localScale = new Vector3(globalScale.x / editingToolScale.x, globalScale.y / editingToolScale.y, globalScale.z / editingToolScale.z);
+        if (globalScaleRemains)
+        {
+            Vector3 editingToolScale = EditingTool.instance.transform.localScale;
+            transform.localScale = new Vector3(globalScale.x / editingToolScale.x, globalScale.y / editingToolScale.y, globalScale.z / editingToolScale.z);
+        }
     }
     private void OnEnable()
     {

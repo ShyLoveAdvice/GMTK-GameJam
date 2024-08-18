@@ -10,6 +10,7 @@ public class EditingTool : Singleton<EditingTool>
     [Header("editing parameters")]
     [SerializeField] float scalingSpeed;
     [SerializeField] float rotatingSpeed;
+    [SerializeField] float minScale, maxScale;
 
     public event System.Action onTransformUpdated;
     //editing variables
@@ -90,6 +91,7 @@ public class EditingTool : Singleton<EditingTool>
     }
     public void SetObjScale(float scale)
     {
+        scale = Mathf.Clamp(scale, minScale, maxScale);
         targetObj.localScale = new Vector3(scale, scale, 1);
         UpdateTransform();
     }
