@@ -4,23 +4,46 @@ using Unity.Properties;
 using Unity.VisualScripting;
 using UnityEngine;
 
-public class EditingTool : MonoBehaviour
+public class EditingTool : Singleton<EditingTool>
 {
     [SerializeField] LineRenderer dotLines;
     [Header("editing parameters")]
     [SerializeField] float scalingSpeed;
     [SerializeField] float rotatingSpeed;
 
+    public event System.Action onTransformUpdated;
     //editing variables
     Vector3 scalingOffset;
     Quaternion rotationOffset, rotationOffsetNeg;
+    public Vector3 ScalingOffset
+    {
+        get => scalingOffset;
+    }
+    public Quaternion RotationOffset
+    {
+        get => rotationOffset;
+    }
+    public Quaternion RotationOffsetNeg
+    {
+        get => rotationOffsetNeg;
+    }
 
     Transform targetObj;
+    public Transform TargetObj
+    {
+        get => targetObj;
+        set
+        {
+            targetObj = value;
+            UpdateTransform();
+        }
+    }
     private void Start()
     {
         scalingOffset = new Vector3(scalingSpeed, scalingSpeed, 0);
         rotationOffset = Quaternion.AngleAxis(rotatingSpeed, Vector3.back);
         rotationOffsetNeg = Quaternion.AngleAxis(rotatingSpeed, Vector3.forward);
+        gameObject.SetActive(false);
     }
     Vector3[] GetBoundingPoints()
     {
@@ -48,11 +71,7 @@ public class EditingTool : MonoBehaviour
         transform.localScale = targetObj.localScale;
         transform.rotation = targetObj.rotation;
         dotLines.SetPositions(GetBoundingPoints());
-    }
-    public void SetTargetObject(Transform obj)
-    {
-        targetObj = obj;
-        UpdateTransform();
+        onTransformUpdated?.Invoke();
     }
     void SellObject()
     {
@@ -63,7 +82,16 @@ public class EditingTool : MonoBehaviour
     public void CreateObject(GameObject prefab)
     {
         GameObject ins = Instantiate(prefab);
-        SetTargetObject(ins.transform);
+    }
+    public void SetObjRotation(Quaternion rotation)
+    {
+        targetObj.rotation = rotation;
+        UpdateTransform();
+    }
+    public void SetObjScale(float scale)
+    {
+        targetObj.localScale = new Vector3(scale, scale, 1);
+        UpdateTransform();
     }
     private void FixedUpdate()
     {

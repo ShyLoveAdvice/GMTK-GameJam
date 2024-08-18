@@ -25,7 +25,7 @@ public class DraggableManager : Singleton<DraggableManager>
     void InitializeTool()
     {
         editingTool.gameObject.SetActive(true);
-        editingTool.SetTargetObject(selectedObject.transform);
+        editingTool.TargetObj=selectedObject.transform;
     }
     void DisableTool()
     {

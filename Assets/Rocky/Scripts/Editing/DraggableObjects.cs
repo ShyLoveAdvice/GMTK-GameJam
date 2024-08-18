@@ -60,6 +60,6 @@ public class DraggableObjects : MonoBehaviour
     void OnDragging()
     {
         rb.position = draggingOffset + mainCam.ScreenToWorldPoint(Input.mousePosition);
-        DraggableManager.instance.editingTool.SetTargetObject(transform);
+        DraggableManager.instance.editingTool.TargetObj=transform;
     }
 }
