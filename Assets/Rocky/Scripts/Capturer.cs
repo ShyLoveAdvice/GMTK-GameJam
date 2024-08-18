@@ -6,7 +6,7 @@ public class Capturer : Singleton<Capturer>
 {
     public Camera cam;
     public int imgWidth, imgHeight;
-    public void Capture(Vector2 camPosition)
+    public AnalyzeResult Capture(Vector2 camPosition)
     {
         cam.gameObject.SetActive(true);
         cam.transform.position = new Vector3(camPosition.x, camPosition.y, -10);
@@ -25,27 +25,32 @@ public class Capturer : Singleton<Capturer>
         cam.Render();
         Texture2D animalInvtex = RT2Tex2D(rt);
         cam.gameObject.SetActive(false);
-        AnalyzeTex(animalInvtex, animaltex, brisktex);
+        return AnalyzeTex(animalInvtex, animaltex, brisktex);
     }
-    void AnalyzeTex(Texture2D animal_inverse, Texture2D animal, Texture2D brisk)
+    AnalyzeResult AnalyzeTex(Texture2D animal_inverse, Texture2D animal, Texture2D brisk)
     {
         Color[] animInvPixels = animal_inverse.GetPixels();
         Color[] animpixels = animal.GetPixels();
         Color[] briskpixels = brisk.GetPixels();
         Color transparent = new Color(0, 0, 0, 0);
-        int totalNumPixelsCovered = 0, numPixelsCovered = 0, numPixelsTransparent = 0;
+        AnalyzeResult res;
+        res.totalNumPixelsCovered = 0;
+        res.numPixelsCovered = 0;
+        res.numPixelsTransparent = 0;
         for(int i = briskpixels.Length - 1; i >= 0; --i)
         {
             if (animInvPixels[i]==transparent && animpixels[i] == transparent)
             {
-                ++numPixelsTransparent;
+                ++res.numPixelsTransparent;
                 if (briskpixels[i] != transparent)
-                    ++numPixelsCovered;
+                    ++res.numPixelsCovered;
             }
             if (briskpixels[i] != transparent)
-                ++totalNumPixelsCovered;
+                ++res.totalNumPixelsCovered;
         }
-        Debug.Log($"total pixels covered={totalNumPixelsCovered}, transparent pixels={numPixelsTransparent}, num pixels covered={numPixelsCovered}, covered percent={(float)numPixelsCovered / numPixelsTransparent}"); ;
+        res.percent = res.numPixelsCovered / res.numPixelsTransparent;
+        Debug.Log($"total pixels covered={res.totalNumPixelsCovered}, transparent pixels={res.numPixelsTransparent}, num pixels covered={res.numPixelsCovered}, covered percent={res.percent}"); ;
+        return res;
     }
     Texture2D RT2Tex2D(RenderTexture rt)
     {
@@ -55,5 +60,10 @@ public class Capturer : Singleton<Capturer>
         tex.Apply();
         RenderTexture.active = null;
         return tex;
+    }
+    public struct AnalyzeResult
+    {
+        public int totalNumPixelsCovered, numPixelsTransparent, numPixelsCovered;
+        public float percent;
     }
 }

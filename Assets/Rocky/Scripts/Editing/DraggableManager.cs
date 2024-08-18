@@ -37,13 +37,17 @@ public class DraggableManager : Singleton<DraggableManager>
                 DisableTool();
         }
     }
-    public void GetScore()
+    public void GetMoneyEarned()
     {
         if (animal == null)
             return;
         if (animal.HomeIsComplete())
         {
-            Capturer.instance.Capture(animal.transform.position);
+            Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
+            float income = 0.0025f * res.totalNumPixelsCovered * Mathf.Pow(res.percent + .56f, 5.7f) + .2f;
+            animal.completed = true;
+            GameManager.instance.Money += income - priceSum;
+            Debug.Log($"income={income}");
         }
         else
             Debug.Log("home incomplete!");
