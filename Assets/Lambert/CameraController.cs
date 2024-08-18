@@ -8,7 +8,9 @@ public class CameraController : Singleton<CameraController>
 {
     public float transitionTime = 1.5f;
     public GameObject closeCamera;
+    public float closeCameraSize;
     public GameObject farCamera;
+    public float farCameraSize;
     public Transform follow;
 
     public float lerp_time;
@@ -71,6 +73,7 @@ public class CameraController : Singleton<CameraController>
     }
     public void ChangeToFarCamera()
     {
+        farCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = farCameraSize;
         closeCamera.SetActive(false);
         farCamera.SetActive(true);
 
@@ -79,6 +82,7 @@ public class CameraController : Singleton<CameraController>
     }
     public void ChangeToCloseCamera(Transform follow)
     {
+        closeCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = closeCameraSize;
         farCamera.SetActive(false);
         closeCamera.SetActive(true);
         closeCamera.GetComponent<CinemachineVirtualCamera>().Follow = follow;
