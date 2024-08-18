@@ -1,18 +1,35 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
-public class CameraController : MonoBehaviour
+public class CameraController : Singleton<CameraController>
 {
-    // Start is called before the first frame update
-    void Start()
+    public float transitionTime = 1.5f;
+    public GameObject closeCamera;
+    public GameObject farCamera;
+    public Transform follow;
+    public override void Awake()
     {
-        
-    }
+        base.Awake();
 
-    // Update is called once per frame
-    void Update()
+        GetComponent<CinemachineBrain>().m_DefaultBlend.m_Time = transitionTime;
+    }
+    private void Update() {
+        if(Input.GetKeyDown(KeyCode.P))
+        {
+            ChangeToCloseCamera(follow);
+        }
+    }
+    public void ChangeToFarCamera()
     {
-        
+        closeCamera.SetActive(false);
+        farCamera.SetActive(true);
+    }
+    public void ChangeToCloseCamera(Transform follow)
+    {
+        farCamera.SetActive(false);
+        closeCamera.SetActive(true);
+        closeCamera.GetComponent<CinemachineVirtualCamera>().Follow = follow;
     }
 }
