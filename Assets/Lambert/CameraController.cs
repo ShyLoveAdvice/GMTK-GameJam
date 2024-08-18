@@ -13,9 +13,9 @@ public class CameraController : Singleton<CameraController>
 
     public float lerp_time;
 
-    CinemachineBrain cinemachineBrain;
-    CinemachineVirtualCamera activeVirtualCam;
-    Camera m_camera;
+    public CinemachineBrain cinemachineBrain;
+    public CinemachineVirtualCamera activeVirtualCam;
+    public Camera m_camera;
     float lerp_pos_speed;
     float lerp_size_speed;
     Vector3 target_lerp_pos;
