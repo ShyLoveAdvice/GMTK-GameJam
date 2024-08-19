@@ -86,6 +86,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camCtrl: {fileID: 0}
+  closeCamSize: 6
   animalParent: {fileID: 5107081295729257220}
   msgBox: {fileID: 0}
   initialMoney: 300
