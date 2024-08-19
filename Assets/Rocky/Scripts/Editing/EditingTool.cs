@@ -12,7 +12,7 @@ public class EditingTool : Singleton<EditingTool>
     [SerializeField] float rotatingSpeed;
     [SerializeField] float minScale, maxScale;
 
-    public event System.Action onEditted;
+    public event System.Action<Vector3[]> onEditted;
     //editing variables
     Vector3 scalingOffset;
     Quaternion rotationOffset, rotationOffsetNeg;
@@ -51,8 +51,9 @@ public class EditingTool : Singleton<EditingTool>
         transform.position = targetObj.transform.position;
         transform.localScale = targetObj.transform.localScale;
         transform.rotation = targetObj.transform.rotation;
-        dotLines.SetPositions(targetObj.GetBoundingPoints());
-        onEditted?.Invoke();
+        Vector3[] boundingPoints = targetObj.GetBoundingPoints();
+        dotLines.SetPositions(boundingPoints);
+        onEditted?.Invoke(boundingPoints);
     }
     public void SetObjRotation(Quaternion rotation)
     {

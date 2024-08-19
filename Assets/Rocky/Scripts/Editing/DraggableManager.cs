@@ -9,7 +9,7 @@ public class DraggableManager : Singleton<DraggableManager>
 {
     public Animal animal;
     public EditingTool editingTool;
-    public BriskInventory briskInventory;
+    public Inventory briskInventory;
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform briskPanelUI;
     [SerializeField] TextMeshProUGUI priceText;
@@ -96,6 +96,7 @@ public class DraggableManager : Singleton<DraggableManager>
     public void CreateObject(GameObject prefab)
     {
         GameObject ins = Instantiate(prefab);
+        ins.transform.position = animal.transform.position + new Vector3(0, 3, 0);
         brisks.Add(ins.GetComponent<DraggableObjects>());
         UpdatePriceText();
     }
@@ -111,7 +112,7 @@ public class DraggableManager : Singleton<DraggableManager>
     private void Start()
     {
         brisks = new List<DraggableObjects>();
-        editingTool.onEditted += UpdatePriceText;
+        editingTool.onEditted += (boundingPoints)=> { UpdatePriceText(); };
         for (int i = 0; i < briskInventory.brisks.Length; ++i)
         {
             GameObject but = Instantiate(buttonPrefab);

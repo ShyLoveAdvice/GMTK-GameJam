@@ -9,13 +9,8 @@ public class EditingToolElement : MonoBehaviour
     {
         Rotate,
         ScaleLT,
-        ScaleMT,
         ScaleRT,
-        ScaleLM,
-        ScaleMM,
-        ScaleRM,
         ScaleLB,
-        ScaleMB,
         ScaleRB
     }
     public EditType editType;
@@ -37,12 +32,32 @@ public class EditingToolElement : MonoBehaviour
         mainCam = Camera.main;
         globalScale = transform.lossyScale;
     }
-    void AdjustGlobalScale()
+    void AdjustGlobalScale(Vector3[] boundingPoints)
     {
         if (globalScaleRemains)
         {
             Vector3 editingToolScale = EditingTool.instance.transform.localScale;
             transform.localScale = new Vector3(globalScale.x / editingToolScale.x, globalScale.y / editingToolScale.y, globalScale.z / editingToolScale.z);
+        }
+        switch (editType)
+        {
+            case EditType.ScaleLT:
+                transform.position = boundingPoints[0];
+                break;
+            case EditType.ScaleRT:
+                transform.position = boundingPoints[1];
+                break;
+            case EditType.ScaleLB:
+                transform.position = boundingPoints[3];
+                break;
+            case EditType.ScaleRB:
+                transform.position = boundingPoints[2];
+                break;
+            case EditType.Rotate:
+                Vector2 temp = boundingPoints[1] - boundingPoints[0];
+                temp = new Vector2(-temp.y, temp.x).normalized * EditingTool.instance.transform.localScale.y * .5f;
+                transform.position = (Vector2)(boundingPoints[1] + boundingPoints[0]) / 2 + temp;
+                break;
         }
     }
     private void OnEnable()
@@ -73,7 +88,6 @@ public class EditingToolElement : MonoBehaviour
                 {
                     float length=((Vector2)(mainCam.ScreenToWorldPoint(Input.mousePosition)-EditingTool.instance.transform.position)).magnitude;
                     EditingTool.instance.SetObjScale(length / scaleBaseLength);
-                    AdjustGlobalScale();
                     break;
                 }
         }
