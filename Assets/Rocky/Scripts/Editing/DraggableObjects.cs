@@ -55,8 +55,10 @@ public class DraggableObjects : MonoBehaviour
     {
         if (tprice < price) // smaller
         {
-            return baseScale.x * tprice / price * baseScale.x;
+            //Debug.Log("smaller. base scale.x=" + baseScale.x);
+            return tprice / price * baseScale.x;
         }
+        //Debug.Log("larger. base scale.x=" + baseScale.x);
         return (6 * tprice / price - 5) * baseScale.x;
     }
     public void EnableCollider(bool val)
