@@ -2776,7 +2776,7 @@ PrefabInstance:
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: closeCamSize
-      value: 6
+      value: 6.5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
