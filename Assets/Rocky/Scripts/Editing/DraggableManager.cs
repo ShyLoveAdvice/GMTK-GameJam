@@ -25,7 +25,7 @@ public class DraggableManager : Singleton<DraggableManager>
         get => selectedObject;
         set
         {
-            if (value == null && selectedObject!=null)
+            if (selectedObject!=null)
                 selectedObject.EnableCollider(true);
             selectedObject = value;
             if (value != null)
@@ -44,6 +44,8 @@ public class DraggableManager : Singleton<DraggableManager>
             Debug.Log("animal is null");
             return;
         }
+        if (animal.completed)
+            return;
         if (animal.HomeIsComplete())
         {
             Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
@@ -51,30 +53,38 @@ public class DraggableManager : Singleton<DraggableManager>
             animal.completed = true;
             GameManager.instance.Money += income - priceSum;
             Debug.Log($"income={income}");
+            //convert draggable objects to static objects
+            for(int i = brisks.Count - 1; i > -1; --i)
+            {
+                GameObject obj = brisks[i].gameObject;
+                Destroy(obj.GetComponent<Rigidbody2D>());
+                Destroy(obj.GetComponent<Collider>());
+                Destroy(brisks[i]);
+            }
+            brisks.Clear();
+            SetAnimal(animal);
         }
         else
             Debug.Log("home incomplete!");
     }
     public void SetAnimal(Animal anim)
     {
-        if (anim == null)
-        {
-            if (brisks == null)
-                brisks = new List<DraggableObjects>();
-            else
-            {
-                foreach(DraggableObjects e in brisks)
-                {
-                    Destroy(e.gameObject);
-                }
-                brisks.Clear();
-            }
-            briskPanelUI.gameObject.SetActive(false);
-        }
+        if (brisks == null)
+            brisks = new List<DraggableObjects>();
         else
         {
-            priceSum = 0;
-            animal = anim;
+            foreach(DraggableObjects e in brisks)
+            {
+                Destroy(e.gameObject);
+            }
+            brisks.Clear();
+        }
+        animal = anim;
+        priceSum = 0;
+        if (animal == null || animal.completed)
+            briskPanelUI.gameObject.SetActive(false);
+        else
+        {
             briskPanelUI.gameObject.SetActive(true);
             UpdatePriceText();
         }
@@ -101,12 +111,24 @@ public class DraggableManager : Singleton<DraggableManager>
     {
         editingTool.gameObject.SetActive(false);
     }
-    public void CreateObject(GameObject prefab)
+    public void CreateObject(DraggableObjects prefab)
     {
-        GameObject ins = Instantiate(prefab);
+        if (prefab.GetRawPrice() + priceSum > GameManager.instance.Money)
+        {
+            Debug.Log("cannot create a brick, not enough money");
+            return;
+        }
+        GameObject ins = Instantiate(prefab.gameObject);
         ins.transform.position = animal.transform.position + new Vector3(0, 3, 0);
-        brisks.Add(ins.GetComponent<DraggableObjects>());
+        DraggableObjects obj = ins.GetComponent<DraggableObjects>();
+        brisks.Add(obj);
         UpdatePriceText();
+        StartCoroutine(SelectObjDelayed(obj));
+    }
+    IEnumerator SelectObjDelayed(DraggableObjects obj)
+    {
+        yield return 0;
+        SelectedObject = obj;
     }
     public void SellObject()
     {

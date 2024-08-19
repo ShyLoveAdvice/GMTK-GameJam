@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class BrickButtonManager : Singleton<BrickButtonManager>
 {
     public GameObject briskButtonPrefab;
-    public void InstantiateBrickButtons(GameObject[] brickPrefabs)
+    public void InstantiateBrickButtons(DraggableObjects[] brickPrefabs)
     {
         for (int i = 0; i < brickPrefabs.Length; i++)
         {

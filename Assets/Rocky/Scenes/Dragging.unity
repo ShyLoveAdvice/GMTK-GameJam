@@ -805,11 +805,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1902308583}
-  m_Father: {fileID: 8664313279554589977}
+  m_Father: {fileID: 7224001863880033300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 417, y: 254}
+  m_AnchoredPosition: {x: 417, y: -178.7602}
   m_SizeDelta: {x: 224.66, y: 98.16}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &851017584
@@ -1407,15 +1407,15 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 8664313280700034139, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
       insertIndex: -1
+      addedObject: {fileID: 2044720603}
+    - targetCorrespondingSourceObject: {fileID: 7224001865016048982, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      insertIndex: -1
       addedObject: {fileID: 851017583}
-    - targetCorrespondingSourceObject: {fileID: 8664313280700034139, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+    - targetCorrespondingSourceObject: {fileID: 7224001865016048982, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
       insertIndex: -1
       addedObject: {fileID: 1380854756}
-    - targetCorrespondingSourceObject: {fileID: 8664313280700034139, guid: 9f6aa80bb08e49746a7f36f7b3734216,
-        type: 3}
-      insertIndex: -1
-      addedObject: {fileID: 2044720603}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6aa80bb08e49746a7f36f7b3734216, type: 3}
 --- !u!1 &1226181017
@@ -1674,11 +1674,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8664313279554589977}
+  m_Father: {fileID: 7224001863880033300}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 743.99994, y: 217}
+  m_AnchoredPosition: {x: 743.99994, y: -215.7602}
   m_SizeDelta: {x: 336, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1455629882 stripped

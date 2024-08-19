@@ -21,7 +21,7 @@ public class DraggableObjects : MonoBehaviour
     bool selected = false;
     Vector3 draggingOffset;
     //bounding points
-    Vector2 baseScale;
+    [HideInInspector] public Vector2 baseScale;
 
     
     private void OnDrawGizmosSelected()
@@ -38,13 +38,26 @@ public class DraggableObjects : MonoBehaviour
         mouseLeftButDownTimer = 0.0f;
         baseScale = transform.localScale;
     }
+    public float GetRawPrice()
+    {
+        return price;
+    }
     public float GetScaledPrice()
     {
-        float ratio = Mathf.Clamp(transform.localScale.x, 0.25f, 4.0f);
+        float scale = transform.localScale.x / baseScale.x;
+        float ratio = Mathf.Clamp(scale, 0.25f, 4.0f);
         if (ratio > 1) //larger
             return price * (1 + (ratio - 1) / 6);
         //smaller
         return price * ratio;
+    }
+    public float PriceToScale(float tprice)
+    {
+        if (tprice < price) // smaller
+        {
+            return baseScale.x * tprice / price * baseScale.x;
+        }
+        return (6 * tprice / price - 5) * baseScale.x;
     }
     public void EnableCollider(bool val)
     {
