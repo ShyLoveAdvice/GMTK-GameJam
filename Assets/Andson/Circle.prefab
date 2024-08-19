@@ -98,9 +98,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89e5e40a7499a34bb621bd012103b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  icon: {fileID: 21300000, guid: 542ff3c77a8311d44a24638aaf3c34ee, type: 3}
   price: 100
   leftTop: {x: 1.0377369, y: 1.0571342}
   rightBottom: {x: -1.0474367, y: -1.047436}
+  pivot: {x: 0, y: 0}
   baseScale: {x: 0, y: 0}
 --- !u!50 &1918761206785633768
 Rigidbody2D:

@@ -72,7 +72,7 @@ public class GameManager : Singleton<GameManager>
         else
             selectedAnimal = -1;
     }
-    void ChangeToFarCamera()
+    public void ChangeToFarCamera()
     {
         switchAnimalButtons.SetActive(false);
         if (DraggableManager.instance.SelectedObject != null)
