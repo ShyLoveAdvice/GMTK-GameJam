@@ -133,7 +133,7 @@ public class DraggableManager : Singleton<DraggableManager>
     public void UpdatePriceText()
     {
         CalculatePriceSum();
-        priceText.text = priceSum.ToString("F2");
+        priceText.text = "Cost: "+priceSum.ToString("F2");
     }
     void InitializeTool()
     {

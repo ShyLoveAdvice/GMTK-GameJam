@@ -1555,6 +1555,12 @@ PrefabInstance:
       addedObject: {fileID: 1380854756}
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9f6aa80bb08e49746a7f36f7b3734216, type: 3}
+--- !u!1 &1147025731 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1393165550760615472, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+    type: 3}
+  m_PrefabInstance: {fileID: 1147025730}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1380854753
 GameObject:
   m_ObjectHideFlags: 0
@@ -2778,6 +2784,11 @@ PrefabInstance:
       propertyPath: closeCamSize
       value: 6.5
       objectReference: {fileID: 0}
+    - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: switchAnimalButtons
+      value: 
+      objectReference: {fileID: 1147025731}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []

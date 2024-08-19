@@ -11,6 +11,7 @@ public class EditingTool : Singleton<EditingTool>
     [SerializeField] float scalingSpeed;
     [SerializeField] float rotatingSpeed;
     [SerializeField] float minScale, maxScale;
+    public float buttonSize;
 
     public event System.Action<Vector3[]> onEditted;
     //editing variables

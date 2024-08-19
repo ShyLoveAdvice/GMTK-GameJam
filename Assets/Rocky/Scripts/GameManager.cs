@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
+    public GameObject switchAnimalButtons;
     public Transform animalParent; //used to initialize variable 'animals'
     public MessageBox msgBox;
     [Header("Camera")]
@@ -29,6 +30,7 @@ public class GameManager : Singleton<GameManager>
     }
     void SelectAnimal(Animal animal)
     {
+        switchAnimalButtons.SetActive(true);
         if (animal != null)
             SFXPlayer.instance.PlayAnimalSFX(animal.type);
         camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, closeCamSize, closeCamPosOffset);
@@ -72,6 +74,7 @@ public class GameManager : Singleton<GameManager>
     }
     void ChangeToFarCamera()
     {
+        switchAnimalButtons.SetActive(false);
         if (DraggableManager.instance.SelectedObject != null)
             DraggableManager.instance.SelectedObject = null;
         if (selectedAnimal != -1)
@@ -101,7 +104,7 @@ public class GameManager : Singleton<GameManager>
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.F))
+        if (Input.GetKeyDown(KeyCode.Escape))
         {
             ChangeToFarCamera();
         }
