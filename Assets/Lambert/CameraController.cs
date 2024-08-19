@@ -57,9 +57,9 @@ public class CameraController : Singleton<CameraController>
         }
     }
     [Button]
-    public void ResizeNReposeCamera(Transform leftMost, Transform rightMost, float width)
+    public void ResizeNReposeCamera(Transform leftMost, Transform rightMost, float width, Vector3 offset)
     {
-        target_lerp_pos = (rightMost.position + leftMost.position) / 2f;
+        target_lerp_pos = (rightMost.position + leftMost.position) / 2f + offset;
         target_lerp_size = (rightMost.position.x - leftMost.position.x + width) * (9f / 32f);
 
         lerp_pos_speed = Vector3.Magnitude(target_lerp_pos - transform.position) / lerp_time;
@@ -67,9 +67,9 @@ public class CameraController : Singleton<CameraController>
 
         lerping = true;
     }
-    public void ResizeNReposeCamera(Transform follow, float size)
+    public void ResizeNReposeCamera(Transform follow, float size, Vector3 offset)
     {
-        target_lerp_pos = follow.position;
+        target_lerp_pos = follow.position + offset;
         target_lerp_size = size;
 
         lerp_pos_speed = Vector3.Magnitude(target_lerp_pos - transform.position) / lerp_time;
