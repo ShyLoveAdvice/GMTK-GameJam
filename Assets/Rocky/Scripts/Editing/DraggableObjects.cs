@@ -7,6 +7,7 @@ using UnityEngine.EventSystems;
 
 public class DraggableObjects : MonoBehaviour
 {
+    public Sprite icon;
     [SerializeField] float price;
     [Header("Bounding Box")]
     public Vector2 leftTop;

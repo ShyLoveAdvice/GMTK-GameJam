@@ -23,6 +23,8 @@ public class BriskButton : MonoBehaviour
             button.onClick.AddListener(() => { 
                 DraggableManager.instance.CreateObject(briskPrefab); 
             });
+            if (briskPrefab.icon != null)
+                button.image.sprite = briskPrefab.icon;
         }
     }
     // Start is called before the first frame update

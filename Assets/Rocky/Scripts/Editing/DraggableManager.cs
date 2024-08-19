@@ -81,7 +81,7 @@ public class DraggableManager : Singleton<DraggableManager>
     }
     IEnumerator GetMoneyEarnedDelayed()
     {
-        yield return new WaitForSeconds(0.05f);
+        yield return new WaitForSeconds(0.1f);
         if (animal.HomeIsComplete())
         {
             Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);

@@ -41,8 +41,6 @@ public class Highlight : MonoBehaviour
     }
     public void MouseEnterHighlight()
     {
-        Debug.Log("Mouse Enter");
-
         var distance = mouseEnterHighlightWidth - m_material.GetFloat("_OutlineWidth");
         targetHighlightWidth = mouseEnterHighlightWidth;
         targetHightlightSpeed = distance / transitionDuration;
