@@ -5,10 +5,12 @@ using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
-    public CameraController camCtrl;
-    public float closeCamSize;
     public Transform animalParent; //used to initialize variable 'animals'
     public MessageBox msgBox;
+    [Header("Camera")]
+    public CameraController camCtrl;
+    public float closeCamSize;
+    public Vector2 closeCamPosOffset, farCamPosOffset;
     [Header("Money")]
     public float initialMoney;
     public TextMeshProUGUI moneyText;
@@ -29,7 +31,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (animal != null)
             SFXPlayer.instance.PlayAnimalSFX(animal.type);
-        camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, closeCamSize);
+        camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, closeCamSize, closeCamPosOffset);
         DraggableManager.instance.SetAnimal(animal);
     }
     public void NextAnimal()
@@ -70,6 +72,8 @@ public class GameManager : Singleton<GameManager>
     }
     void ChangeToFarCamera()
     {
+        if (DraggableManager.instance.SelectedObject != null)
+            DraggableManager.instance.SelectedObject = null;
         if (selectedAnimal != -1)
             DraggableManager.instance.SetAnimal(null);
         selectedAnimal = -1;
@@ -78,7 +82,7 @@ public class GameManager : Singleton<GameManager>
             if (!animals[numCompletedAnimal].completed)
                 break;
         numCompletedAnimal = (numCompletedAnimal / 5 + 1) * 5 - 1;
-        camCtrl.ResizeNReposeCamera(animals[0].transform, animals[numCompletedAnimal].transform, 5);
+        camCtrl.ResizeNReposeCamera(animals[0].transform, animals[numCompletedAnimal].transform, 5, farCamPosOffset);
     }
     private void Start()
     {
