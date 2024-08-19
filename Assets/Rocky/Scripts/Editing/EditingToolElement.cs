@@ -14,11 +14,6 @@ public class EditingToolElement : MonoBehaviour
         ScaleRB
     }
     public EditType editType;
-    public bool globalScaleRemains;
-    /// <summary>
-    /// editing tool elements should keep their global scales constant.
-    /// </summary>
-    Vector3 globalScale;
     BoxCollider2D bc;
     Camera mainCam;
     bool isDragging;
@@ -30,12 +25,11 @@ public class EditingToolElement : MonoBehaviour
     {
         bc = GetComponent<BoxCollider2D>();
         mainCam = Camera.main;
-        globalScale = transform.lossyScale;
     }
     void AdjustGlobalScale(Vector3[] boundingPoints)
     {
         Vector3 editingToolScale = EditingTool.instance.transform.localScale;
-        float newScale = ((Vector2)(boundingPoints[1] - boundingPoints[0])).magnitude * .15f;
+        float newScale = ((Vector2)(boundingPoints[1] - boundingPoints[0])).magnitude * EditingTool.instance.buttonSize;
         transform.localScale = new Vector3(newScale / editingToolScale.x, newScale / editingToolScale.y, newScale / editingToolScale.z);
         switch (editType)
         {
