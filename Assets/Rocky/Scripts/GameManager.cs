@@ -25,6 +25,7 @@ public class GameManager : Singleton<GameManager>
     }
     void SelectAnimal(Animal animal)
     {
+        SFXPlayer.instance.PlayChickenSFX();
         camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, 5);
         DraggableManager.instance.SetAnimal(animal);
     }

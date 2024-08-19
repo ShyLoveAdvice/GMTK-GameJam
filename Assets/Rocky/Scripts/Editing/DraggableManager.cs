@@ -46,6 +46,8 @@ public class DraggableManager : Singleton<DraggableManager>
         }
         if (animal.completed)
             return;
+        if (selectedObject != null)
+            SelectedObject = null;
         if (animal.HomeIsComplete())
         {
             Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
@@ -63,6 +65,7 @@ public class DraggableManager : Singleton<DraggableManager>
             }
             brisks.Clear();
             SetAnimal(animal);
+            SFXPlayer.instance.PlayChickenSFX();
         }
         else
             Debug.Log("home incomplete!");
