@@ -34,11 +34,9 @@ public class EditingToolElement : MonoBehaviour
     }
     void AdjustGlobalScale(Vector3[] boundingPoints)
     {
-        if (globalScaleRemains)
-        {
-            Vector3 editingToolScale = EditingTool.instance.transform.localScale;
-            transform.localScale = new Vector3(globalScale.x / editingToolScale.x, globalScale.y / editingToolScale.y, globalScale.z / editingToolScale.z);
-        }
+        Vector3 editingToolScale = EditingTool.instance.transform.localScale;
+        float newScale = ((Vector2)(boundingPoints[1] - boundingPoints[0])).magnitude * .15f;
+        transform.localScale = new Vector3(newScale / editingToolScale.x, newScale / editingToolScale.y, newScale / editingToolScale.z);
         switch (editType)
         {
             case EditType.ScaleLT:
@@ -55,7 +53,7 @@ public class EditingToolElement : MonoBehaviour
                 break;
             case EditType.Rotate:
                 Vector2 temp = boundingPoints[1] - boundingPoints[0];
-                temp = new Vector2(-temp.y, temp.x).normalized * EditingTool.instance.transform.localScale.y * .5f;
+                temp = new Vector2(-temp.y, temp.x).normalized * newScale * 2.0f;
                 transform.position = (Vector2)(boundingPoints[1] + boundingPoints[0]) / 2 + temp;
                 break;
         }

@@ -49,7 +49,6 @@ public class EditingTool : Singleton<EditingTool>
     public void UpdateTransform()
     {
         transform.position = targetObj.transform.position;
-        transform.localScale = targetObj.transform.localScale;
         transform.rotation = targetObj.transform.rotation;
         Vector3[] boundingPoints = targetObj.GetBoundingPoints();
         dotLines.SetPositions(boundingPoints);
@@ -62,8 +61,17 @@ public class EditingTool : Singleton<EditingTool>
     }
     public void SetObjScale(float scale)
     {
-        scale = Mathf.Clamp(scale, minScale, maxScale);
+        scale = Mathf.Clamp(scale, minScale*targetObj.baseScale.x, maxScale*targetObj.baseScale.x);
+        Vector3 originalScale = transform.localScale;
+        float originalPrice = targetObj.GetScaledPrice();
         targetObj.transform.localScale = new Vector3(scale, scale, 1);
+        float newPrice = targetObj.GetScaledPrice();
+        if (newPrice + DraggableManager.instance.PriceSum - originalPrice > GameManager.instance.Money)
+        {
+            float maxPrice = GameManager.instance.Money - DraggableManager.instance.PriceSum;
+            scale = targetObj.PriceToScale(maxPrice);
+            targetObj.transform.localScale = new Vector3(scale, scale, 1);
+        }
         UpdateTransform();
     }
     private void FixedUpdate()

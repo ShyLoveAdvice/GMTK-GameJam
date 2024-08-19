@@ -20,7 +20,7 @@ public class GameManager : Singleton<GameManager>
         set
         {
             money = value;
-            moneyText.text = "Money: " + initialMoney.ToString("F2");
+            moneyText.text = "Money: " + money.ToString("F2");
         }
     }
     void SelectAnimal(Animal animal)
@@ -57,7 +57,7 @@ public class GameManager : Singleton<GameManager>
                 minDist = dist;
             }
         }
-        if (selectedAnimal == 0 || animals[selectedAnimal].completed)
+        if (selectedAnimal == 0 || animals[selectedAnimal-1].completed)
         {
             SelectAnimal(animals[selectedAnimal]);
         }

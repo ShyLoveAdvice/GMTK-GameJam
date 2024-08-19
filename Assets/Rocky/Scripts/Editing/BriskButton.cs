@@ -6,8 +6,8 @@ using UnityEngine.UI;
 public class BriskButton : MonoBehaviour
 {
     Button button;
-    GameObject briskPrefab;
-    public GameObject BriskPrefab
+    DraggableObjects briskPrefab;
+    public DraggableObjects BriskPrefab
     {
         get => briskPrefab;
         set
