@@ -64,7 +64,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: 60a89e659ccae5246a0c505327224527, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -101,6 +101,7 @@ MonoBehaviour:
   price: 100
   leftTop: {x: 1.0377369, y: 1.0571342}
   rightBottom: {x: -1.0474367, y: -1.047436}
+  baseScale: {x: 0, y: 0}
 --- !u!50 &1918761206785633768
 Rigidbody2D:
   serializedVersion: 4
