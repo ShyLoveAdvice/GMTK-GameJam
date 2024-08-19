@@ -46,15 +46,46 @@ public class DraggableManager : Singleton<DraggableManager>
         }
         if (animal.completed)
             return;
+        if (selectedObject != null) //if is still selecting an object, it might cover the entire animal. so this is to give unity some time to apply collider and avoid cheating
+        {
+            SelectedObject = null;
+            StartCoroutine(GetMoneyEarnedDelayed());
+        }
+        else
+        {
+            if (animal.HomeIsComplete())
+            {
+                Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
+                float income = 0.0025f * res.totalNumPixelsCovered * Mathf.Pow(res.percent + .56f, 5.7f) + .2f;
+                animal.completed = true;
+                GameManager.instance.Money += income - priceSum;
+                //convert draggable objects to static objects
+                for (int i = brisks.Count - 1; i > -1; --i)
+                {
+                    GameObject obj = brisks[i].gameObject;
+                    Destroy(obj.GetComponent<Rigidbody2D>());
+                    Destroy(obj.GetComponent<Collider>());
+                    Destroy(brisks[i]);
+                }
+                brisks.Clear();
+                SetAnimal(animal);
+                SFXPlayer.instance.PlayAnimalSFX(animal.type);
+            }
+            else
+                GameManager.instance.msgBox.OpenMessageBox("your build is incomplete!");
+        }
+    }
+    IEnumerator GetMoneyEarnedDelayed()
+    {
+        yield return new WaitForSeconds(0.05f);
         if (animal.HomeIsComplete())
         {
             Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
             float income = 0.0025f * res.totalNumPixelsCovered * Mathf.Pow(res.percent + .56f, 5.7f) + .2f;
             animal.completed = true;
             GameManager.instance.Money += income - priceSum;
-            Debug.Log($"income={income}");
             //convert draggable objects to static objects
-            for(int i = brisks.Count - 1; i > -1; --i)
+            for (int i = brisks.Count - 1; i > -1; --i)
             {
                 GameObject obj = brisks[i].gameObject;
                 Destroy(obj.GetComponent<Rigidbody2D>());
@@ -63,9 +94,10 @@ public class DraggableManager : Singleton<DraggableManager>
             }
             brisks.Clear();
             SetAnimal(animal);
+            SFXPlayer.instance.PlayAnimalSFX(animal.type);
         }
         else
-            Debug.Log("home incomplete!");
+            GameManager.instance.msgBox.OpenMessageBox("your build is incomplete!");
     }
     public void SetAnimal(Animal anim)
     {
@@ -115,7 +147,7 @@ public class DraggableManager : Singleton<DraggableManager>
     {
         if (prefab.GetRawPrice() + priceSum > GameManager.instance.Money)
         {
-            Debug.Log("cannot create a brick, not enough money");
+            GameManager.instance.msgBox.OpenMessageBox("you don't have enough money!");
             return;
         }
         GameObject ins = Instantiate(prefab.gameObject);

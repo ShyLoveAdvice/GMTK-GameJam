@@ -6,7 +6,9 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public CameraController camCtrl;
+    public float closeCamSize;
     public Transform animalParent; //used to initialize variable 'animals'
+    public MessageBox msgBox;
     [Header("Money")]
     public float initialMoney;
     public TextMeshProUGUI moneyText;
@@ -25,7 +27,9 @@ public class GameManager : Singleton<GameManager>
     }
     void SelectAnimal(Animal animal)
     {
-        camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, 5);
+        if (animal != null)
+            SFXPlayer.instance.PlayAnimalSFX(animal.type);
+        camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, closeCamSize);
         DraggableManager.instance.SetAnimal(animal);
     }
     public void NextAnimal()
@@ -73,7 +77,7 @@ public class GameManager : Singleton<GameManager>
         for(numCompletedAnimal=0;numCompletedAnimal< animals.Length; ++numCompletedAnimal)
             if (!animals[numCompletedAnimal].completed)
                 break;
-        numCompletedAnimal = (numCompletedAnimal / 5 + 1) * 5;
+        numCompletedAnimal = (numCompletedAnimal / 5 + 1) * 5 - 1;
         camCtrl.ResizeNReposeCamera(animals[0].transform, animals[numCompletedAnimal].transform, 5);
     }
     private void Start()

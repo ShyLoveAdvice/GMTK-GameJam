@@ -62,13 +62,12 @@ public class EditingTool : Singleton<EditingTool>
     public void SetObjScale(float scale)
     {
         scale = Mathf.Clamp(scale, minScale*targetObj.baseScale.x, maxScale*targetObj.baseScale.x);
-        Vector3 originalScale = transform.localScale;
         float originalPrice = targetObj.GetScaledPrice();
         targetObj.transform.localScale = new Vector3(scale, scale, 1);
         float newPrice = targetObj.GetScaledPrice();
         if (newPrice + DraggableManager.instance.PriceSum - originalPrice > GameManager.instance.Money)
         {
-            float maxPrice = GameManager.instance.Money - DraggableManager.instance.PriceSum;
+            float maxPrice = GameManager.instance.Money - DraggableManager.instance.PriceSum + originalPrice;
             scale = targetObj.PriceToScale(maxPrice);
             targetObj.transform.localScale = new Vector3(scale, scale, 1);
         }
