@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class SFXPlayer : Singleton<SFXPlayer>
 {
+    public List<AudioSource> Bat;
     public List<AudioSource> Chicken;
     public List<AudioSource> Deer;
     public List<AudioSource> Elephant;
-    public List<AudioSource> Mosue;
+    public List<AudioSource> Pig;
     public List<AudioSource> Rabbit;
     public List<AudioSource> Sheep;
     public List<AudioSource> Snake;
@@ -35,8 +36,10 @@ public class SFXPlayer : Singleton<SFXPlayer>
                 Deer.Add(audioSource);
             if(transform.GetChild(i).name.Contains("Elephant"))
                 Elephant.Add(audioSource);
-            if(transform.GetChild(i).name.Contains("Mosue"))
-                Mosue.Add(audioSource);
+            if(transform.GetChild(i).name.Contains("Bat"))
+                Bat.Add(audioSource);
+            if(transform.GetChild(i).name.Contains("Pig"))
+                Pig.Add(audioSource);
             if(transform.GetChild(i).name.Contains("Rabbit"))
                 Rabbit.Add(audioSource);
             if(transform.GetChild(i).name.Contains("Sheep"))
@@ -72,9 +75,13 @@ public class SFXPlayer : Singleton<SFXPlayer>
     {
         PlayRandomSFX(Elephant);
     }
-    public void PlayMosueSFX()
+    public void PlayBatSFX()
     {
-        PlayRandomSFX(Mosue);
+        PlayRandomSFX(Bat);
+    }
+    public void PlayPigSFX()
+    {
+        PlayRandomSFX(Pig);
     }
     public void PlayRabbitSFX()
     {
