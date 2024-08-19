@@ -20,6 +20,8 @@ public class DraggableObjects : MonoBehaviour
     //dragging
     bool selected = false;
     Vector3 draggingOffset;
+    //bounding points
+    Vector2 baseScale;
 
     
     private void OnDrawGizmosSelected()
@@ -34,6 +36,7 @@ public class DraggableObjects : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         mainCam = Camera.main;
         mouseLeftButDownTimer = 0.0f;
+        baseScale = transform.localScale;
     }
     public float GetScaledPrice()
     {
@@ -92,8 +95,8 @@ public class DraggableObjects : MonoBehaviour
         Vector2 halfSize = leftTop - rightBottom;
         Vector2 center = (leftTop + rightBottom) / 2;
         Quaternion rotation = transform.rotation;
-        halfSize.x = Mathf.Abs(halfSize.x) / 2 * transform.localScale.x;
-        halfSize.y = Mathf.Abs(halfSize.y) / 2 * transform.localScale.y;
+        halfSize.x = Mathf.Abs(halfSize.x) / 2 / baseScale.x * transform.localScale.x;
+        halfSize.y = Mathf.Abs(halfSize.y) / 2 / baseScale.y * transform.localScale.y;
         ret[0] = new Vector3(center.x - halfSize.x, center.y + halfSize.y);
         ret[1] = new Vector3(center.x + halfSize.x, center.y + halfSize.y);
         ret[2] = new Vector3(center.x + halfSize.x, center.y - halfSize.y);

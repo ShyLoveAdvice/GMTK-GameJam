@@ -15,6 +15,7 @@ public class DraggableObjectEditor : Editor
     }
     private void OnSceneGUI()
     {
+        Handles.color = Color.red;
         Vector3 temp;
         EditorGUI.BeginChangeCheck();
         temp = Handles.FreeMoveHandle(m_target.leftTop + (Vector2)m_target.transform.position, .2f, Vector2.zero, Handles.CylinderHandleCap) - m_target.transform.position;
