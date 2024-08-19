@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3025887294608492547}
   - component: {fileID: 9159608681632645624}
   - component: {fileID: 3425250210977872585}
-  - component: {fileID: 6386004404164127809}
+  - component: {fileID: 7928518969518744524}
   m_Layer: 7
   m_Name: Semicircle
   m_TagString: Untagged
@@ -30,8 +30,8 @@ Transform:
   m_GameObject: {fileID: 1733172604718371988}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.96, y: -5.14, z: 7.01}
-  m_LocalScale: {x: 2, y: 2, z: 2}
+  m_LocalPosition: {x: -10.668, y: -4.912, z: 7.01}
+  m_LocalScale: {x: 30, y: 30, z: 30}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -43,7 +43,7 @@ MeshFilter:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1733172604718371988}
-  m_Mesh: {fileID: -2508796484986968503, guid: 244b0e71a577e724eafdcb40fa3c1ad8, type: 3}
+  m_Mesh: {fileID: -4946331212600586933, guid: 1e0f11915a3c08242bce355da2778c04, type: 3}
 --- !u!23 &3025887294608492547
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -99,8 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 50
-  leftTop: {x: 0.99821806, y: 0.58377934}
-  rightBottom: {x: -1.0160427, y: -0.45900154}
+  leftTop: {x: 1.5429659, y: -1.5310593}
+  rightBottom: {x: -0.011212349, y: 0.022144318}
   baseScale: {x: 0, y: 0}
 --- !u!50 &3425250210977872585
 Rigidbody2D:
@@ -129,7 +129,7 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
---- !u!60 &6386004404164127809
+--- !u!60 &7928518969518744524
 PolygonCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -173,19 +173,14 @@ PolygonCollider2D:
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: 0.22517538, y: 0.23615909}
-      - {x: 0.11237621, y: 0.28097105}
-      - {x: -0.034701347, y: 0.29774797}
-      - {x: -0.14345741, y: 0.26797318}
-      - {x: -0.22868729, y: 0.23138332}
-      - {x: -0.2955475, y: 0.19454312}
-      - {x: -0.37306547, y: 0.12757659}
-      - {x: -0.42544365, y: 0.06264615}
-      - {x: -0.4778414, y: -0.063937664}
-      - {x: -0.5021012, y: -0.22041759}
-      - {x: 0.5080684, y: -0.2175143}
-      - {x: 0.48451352, y: -0.06950021}
-      - {x: 0.44385576, y: 0.026668072}
-      - {x: 0.4023838, y: 0.10097337}
-      - {x: 0.33440876, y: 0.17203242}
+    - - {x: 0.0254, y: 0}
+      - {x: -0.0005282534, y: 0.0001634527}
+      - {x: -0.00074886344, y: -0.05106653}
+      - {x: 0.009266172, y: -0.05030172}
+      - {x: 0.019439492, y: -0.04754101}
+      - {x: 0.028655833, y: -0.042609353}
+      - {x: 0.034424946, y: -0.036894992}
+      - {x: 0.04318992, y: -0.027266562}
+      - {x: 0.04891391, y: -0.0151231885}
+      - {x: 0.05152511, y: 0.00055711716}
   m_UseDelaunayMesh: 0
