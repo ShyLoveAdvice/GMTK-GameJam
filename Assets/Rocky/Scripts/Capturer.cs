@@ -48,7 +48,7 @@ public class Capturer : Singleton<Capturer>
             if (briskpixels[i] != transparent)
                 ++res.totalNumPixelsCovered;
         }
-        res.percent = res.numPixelsCovered / res.numPixelsTransparent;
+        res.percent = (float)res.numPixelsCovered / res.numPixelsTransparent;
         Debug.Log($"total pixels covered={res.totalNumPixelsCovered}, transparent pixels={res.numPixelsTransparent}, num pixels covered={res.numPixelsCovered}, covered percent={res.percent}"); ;
         return res;
     }

@@ -40,7 +40,10 @@ public class DraggableManager : Singleton<DraggableManager>
     public void GetMoneyEarned()
     {
         if (animal == null)
+        {
+            Debug.Log("animal is null");
             return;
+        }
         if (animal.HomeIsComplete())
         {
             Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
@@ -56,11 +59,16 @@ public class DraggableManager : Singleton<DraggableManager>
     {
         if (anim == null)
         {
-            foreach(DraggableObjects e in brisks)
+            if (brisks == null)
+                brisks = new List<DraggableObjects>();
+            else
             {
-                Destroy(e.gameObject);
+                foreach(DraggableObjects e in brisks)
+                {
+                    Destroy(e.gameObject);
+                }
+                brisks.Clear();
             }
-            brisks.Clear();
             briskPanelUI.gameObject.SetActive(false);
         }
         else
@@ -113,13 +121,7 @@ public class DraggableManager : Singleton<DraggableManager>
     {
         brisks = new List<DraggableObjects>();
         editingTool.onEditted += (boundingPoints)=> { UpdatePriceText(); };
-        for (int i = 0; i < briskInventory.brisks.Length; ++i)
-        {
-            GameObject but = Instantiate(buttonPrefab);
-            BriskButton bb = but.GetComponent<BriskButton>();
-            bb.BriskPrefab = briskInventory.brisks[i];
-            but.transform.SetParent(briskPanelUI.transform, false);
-        }
+        BrickButtonManager.instance.InstantiateBrickButtons(briskInventory.brisks);
     }
     // Update is called once per frame
     void Update()

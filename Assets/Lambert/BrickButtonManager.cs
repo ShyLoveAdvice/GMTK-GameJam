@@ -11,7 +11,7 @@ public class BrickButtonManager : Singleton<BrickButtonManager>
         for (int i = 0; i < brickPrefabs.Length; i++)
         {
             BriskButton briskButton = Instantiate(briskButtonPrefab).GetComponent<BriskButton>();
-            briskButton.transform.SetParent(transform);
+            briskButton.transform.SetParent(transform, false);
             briskButton.BriskPrefab = brickPrefabs[i];
         }
     }

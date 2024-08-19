@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class GameManager : Singleton<GameManager>
 {
     public CameraController camCtrl;
     public Transform animalParent; //used to initialize variable 'animals'
+    [Header("Money")]
+    public float initialMoney;
+    public TextMeshProUGUI moneyText;
 
     Animal[] animals;
     int selectedAnimal;
@@ -16,12 +20,29 @@ public class GameManager : Singleton<GameManager>
         set
         {
             money = value;
+            moneyText.text = "Money: " + initialMoney.ToString("F2");
         }
     }
     void SelectAnimal(Animal animal)
     {
         camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, 5);
         DraggableManager.instance.SetAnimal(animal);
+    }
+    public void NextAnimal()
+    {
+        if (selectedAnimal!=-1 && selectedAnimal < animals.Length-1 && animals[selectedAnimal].completed)
+        {
+            ++selectedAnimal;
+            SelectAnimal(animals[selectedAnimal]);
+        }
+    }
+    public void PrevAnimal()
+    {
+        if (selectedAnimal > 0)
+        {
+            --selectedAnimal;
+            SelectAnimal(animals[selectedAnimal]);
+        }
     }
     void ChooseAnimal(Vector2 mousePos)
     {
@@ -57,6 +78,7 @@ public class GameManager : Singleton<GameManager>
     }
     private void Start()
     {
+        //get animals
         int childCount = animalParent.childCount;
         animals = new Animal[childCount];
         for(int i = 0; i < childCount; ++i)
@@ -64,7 +86,10 @@ public class GameManager : Singleton<GameManager>
             animals[i] = animalParent.GetChild(i).GetComponent<Animal>();
         }
         ChangeToFarCamera();
+        //disable draggable uis
         DraggableManager.instance.SetAnimal(null);
+        //set initial money
+        Money = initialMoney;
     }
     private void Update()
     {
