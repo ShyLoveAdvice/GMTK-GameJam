@@ -70,6 +70,7 @@ public class DraggableManager : Singleton<DraggableManager>
                 brisks.Clear();
                 SetAnimal(animal);
                 SFXPlayer.instance.PlayAnimalSFX(animal.type);
+                GameManager.instance.msgBox.OpenMessageBox($"Your net earning is {income - priceSum}! cost: {priceSum}, earned: {income}");
             }
             else
                 GameManager.instance.msgBox.OpenMessageBox("your build is incomplete!");
