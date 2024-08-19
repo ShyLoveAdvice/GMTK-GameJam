@@ -24,35 +24,44 @@ public class CameraController : Singleton<CameraController>
         m_camera = GetComponent<Camera>();
         cinemachineBrain = GetComponent<CinemachineBrain>();
     }
-    private void Start() {
+    private IEnumerator Start()
+    {
+        yield return null;
         activeVirtualCam = cinemachineBrain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+        Debug.Log(activeVirtualCam == null);
     }
-    private void Update() {
-        if(lerping)
+    private void Update()
+    {
+        if (lerping)
         {
-            if(Vector3.Distance(transform.position, target_lerp_pos) > 0.1f)
+            if (Vector3.Distance(transform.position, target_lerp_pos) > 0.1f)
             {
                 transform.position = Vector3.MoveTowards(transform.position, target_lerp_pos, lerp_pos_speed * Time.deltaTime);
+                if (activeVirtualCam == null)
+                {
+                    if(cinemachineBrain.ActiveVirtualCamera == null)
+                        return;
+                    activeVirtualCam = cinemachineBrain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+                }
+            
                 activeVirtualCam.m_Lens.OrthographicSize += lerp_size_speed * Time.deltaTime;
             }
 
-            if(Vector3.Distance(transform.position, target_lerp_pos) < 0.1f)
+            if (Vector3.Distance(transform.position, target_lerp_pos) < 0.1f)
             {
                 activeVirtualCam.m_Lens.OrthographicSize = target_lerp_size;
                 transform.position = target_lerp_pos;
                 lerping = false;
             }
 
-            
+
         }
     }
     [Button]
     public void ResizeNReposeCamera(Transform leftMost, Transform rightMost, float width)
     {
         target_lerp_pos = (rightMost.position + leftMost.position) / 2f;
-        target_lerp_size = (rightMost.position.x - leftMost.position.x + width) * (9f/32f);
-
-        cinemachineBrain.ActiveVirtualCamera.Follow = null;
+        target_lerp_size = (rightMost.position.x - leftMost.position.x + width) * (9f / 32f);
 
         lerp_pos_speed = Vector3.Magnitude(target_lerp_pos - transform.position) / lerp_time;
         lerp_size_speed = (target_lerp_size - m_camera.orthographicSize) / lerp_time;
