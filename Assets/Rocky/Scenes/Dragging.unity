@@ -195,7 +195,7 @@ LineRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Positions:
   - {x: -1, y: 1, z: 0}
   - {x: 1, y: 1, z: 0}
@@ -316,7 +316,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d5e8f15bb0ee2644da3bc696134ce3c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -683,7 +683,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d5e8f15bb0ee2644da3bc696134ce3c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -959,7 +959,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d5e8f15bb0ee2644da3bc696134ce3c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1772,7 +1772,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d5e8f15bb0ee2644da3bc696134ce3c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -1871,7 +1871,6 @@ GameObject:
   - component: {fileID: 1887930470}
   - component: {fileID: 1887930467}
   - component: {fileID: 1887930469}
-  - component: {fileID: 1887930468}
   m_Layer: 0
   m_Name: Capture Camera
   m_TagString: Untagged
@@ -1914,11 +1913,11 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.044127
+  orthographic size: 5.76
   m_Depth: 0
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 256
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 143346489}
   m_TargetDisplay: 1
@@ -1930,21 +1929,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1887930468
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1887930466}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a4ca2d558d1ab984a99be0a823f7dbb7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  cam: {fileID: 1887930467}
-  imgWidth: 100
-  imgHeight: 100
 --- !u!114 &1887930469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1998,7 +1982,7 @@ Transform:
   m_GameObject: {fileID: 1887930466}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.06, y: -0.63, z: -10}
+  m_LocalPosition: {x: -0.38, y: 2.2, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2584,7 +2568,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 10306, guid: 0000000000000000f000000000000000, type: 0}
+  - {fileID: 2100000, guid: d5e8f15bb0ee2644da3bc696134ce3c3, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -2687,6 +2671,21 @@ PrefabInstance:
       objectReference: {fileID: 1887930467}
     - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
+      propertyPath: power
+      value: 5.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: offset1
+      value: 0.56
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: offset2
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
       propertyPath: priceText
       value: 
       objectReference: {fileID: 1380854754}
@@ -2700,6 +2699,11 @@ PrefabInstance:
       propertyPath: briskPanelUI
       value: 
       objectReference: {fileID: 7224001863880033300}
+    - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: scorePerPixel
+      value: 0.075
+      objectReference: {fileID: 0}
     - target: {fileID: 5225365414803256499, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: gameSceneName

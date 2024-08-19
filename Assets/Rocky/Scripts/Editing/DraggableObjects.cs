@@ -11,6 +11,7 @@ public class DraggableObjects : MonoBehaviour
     [Header("Bounding Box")]
     public Vector2 leftTop;
     public Vector2 rightBottom;
+    public Vector2 pivot;
 
     Collider2D bc;
     Rigidbody2D rb;
@@ -28,6 +29,7 @@ public class DraggableObjects : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawWireCube((leftTop + rightBottom)/2 + (Vector2)transform.position, leftTop - rightBottom);
+        Gizmos.DrawWireSphere(pivot + (Vector2)transform.position, .1f);
     }
     // Start is called before the first frame update
     void Start()
@@ -65,7 +67,6 @@ public class DraggableObjects : MonoBehaviour
     {
         bc.isTrigger = !val;
     }
-
     // Update is called once per frame
     void Update()
     {
@@ -107,15 +108,23 @@ public class DraggableObjects : MonoBehaviour
     public Vector3[] GetBoundingPoints()
     {
         Vector3[] ret = new Vector3[5];
+        Quaternion rotation = transform.rotation;
+        /*
         Vector2 halfSize = leftTop - rightBottom;
         Vector2 center = (leftTop + rightBottom) / 2;
-        Quaternion rotation = transform.rotation;
         halfSize.x = Mathf.Abs(halfSize.x) / 2 / baseScale.x * transform.localScale.x;
         halfSize.y = Mathf.Abs(halfSize.y) / 2 / baseScale.y * transform.localScale.y;
         ret[0] = new Vector3(center.x - halfSize.x, center.y + halfSize.y);
         ret[1] = new Vector3(center.x + halfSize.x, center.y + halfSize.y);
         ret[2] = new Vector3(center.x + halfSize.x, center.y - halfSize.y);
         ret[3] = new Vector3(center.x - halfSize.x, center.y - halfSize.y);
+        */
+        float l = Mathf.Min(leftTop.x, rightBottom.x), r = Mathf.Max(leftTop.x, rightBottom.x);
+        float t = Mathf.Max(leftTop.y, rightBottom.y), b = Mathf.Min(leftTop.y, rightBottom.y);
+        ret[0] = new Vector2(l - pivot.x, t - pivot.y) / baseScale * (transform.localScale);
+        ret[1] = new Vector2(r-pivot.x, t-pivot.y) / baseScale * (transform.localScale);;
+        ret[2] = new Vector2(r - pivot.x, b - pivot.y) / baseScale * (transform.localScale);;
+        ret[3] = new Vector2(l - pivot.x, b - pivot.y) / baseScale * (transform.localScale);;
         for(int i = 0; i < 4; ++i)
         {
             ret[i] = rotation * ret[i] + transform.position;

@@ -31,5 +31,13 @@ public class DraggableObjectEditor : Editor
             Undo.RecordObject(target, "Bounds");
             m_target.rightBottom = temp;
         }
+        EditorGUI.BeginChangeCheck();
+        Handles.color = Color.green;
+        temp = Handles.FreeMoveHandle(m_target.pivot + (Vector2)m_target.transform.position, .2f, Vector2.zero, Handles.CylinderHandleCap) - m_target.transform.position;
+        if (EditorGUI.EndChangeCheck())
+        {
+            Undo.RecordObject(target, "Bounds");
+            m_target.pivot = temp;
+        }
     }
 }
