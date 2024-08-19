@@ -6,6 +6,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public CameraController camCtrl;
+    public float closeCamSize;
     public Transform animalParent; //used to initialize variable 'animals'
     public MessageBox msgBox;
     [Header("Money")]
@@ -28,7 +29,7 @@ public class GameManager : Singleton<GameManager>
     {
         if (animal != null)
             SFXPlayer.instance.PlayAnimalSFX(animal.type);
-        camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, 5);
+        camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, closeCamSize);
         DraggableManager.instance.SetAnimal(animal);
     }
     public void NextAnimal()
