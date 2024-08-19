@@ -98,9 +98,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89e5e40a7499a34bb621bd012103b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  price: 100
+  price: 50
   leftTop: {x: 0.99821806, y: 0.58377934}
   rightBottom: {x: -1.0160427, y: -0.45900154}
+  baseScale: {x: 0, y: 0}
 --- !u!50 &3425250210977872585
 Rigidbody2D:
   serializedVersion: 4
