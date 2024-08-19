@@ -10,6 +10,7 @@ public class Highlight : MonoBehaviour
     void Start()
     {
         highlightMat = GetComponent<Image>().material;
+        highlightMat.SetFloat("_OutlineWidth", Random.Range(0, 0.1f));
     }
 
     // Update is called once per frame

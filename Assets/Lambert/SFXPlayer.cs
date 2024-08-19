@@ -237,6 +237,8 @@ public class SFXPlayer : Singleton<SFXPlayer>
     }
     private void PlayRandomSFX(List<AudioSource> audioSourceList)
     {
+        if(audioSourceList.Count == 0)
+            return;
         var i = Random.Range(0, audioSourceList.Count);
         audioSourceList[i].Play();
     }
