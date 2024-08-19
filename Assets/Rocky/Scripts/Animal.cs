@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class Animal : MonoBehaviour
 {
+    public Animals type;
     public Ray[] rays;
 
     [HideInInspector] public float score;

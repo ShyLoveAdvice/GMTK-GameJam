@@ -183,6 +183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a729d0e20935b4a469862845518c1307, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  type: 13
   rays: []
   score: 0
   completed: 0

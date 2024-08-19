@@ -1135,14 +1135,14 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 4860603491712304916}
         m_TargetAssemblyTypeName: SceneManager, Assembly-CSharp
-        m_MethodName: LoadGameScene
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: EndScreen
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &954652440
@@ -2264,6 +2264,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1902308582}
   m_CullTransparentMesh: 1
+--- !u!114 &1939863768 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4697011662900618746, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+    type: 3}
+  m_PrefabInstance: {fileID: 1147025730}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b5204635dad8b24fbb9987c8b905e44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2044720600
 GameObject:
   m_ObjectHideFlags: 0
@@ -2877,6 +2889,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
+      propertyPath: msgBox
+      value: 
+      objectReference: {fileID: 1939863768}
+    - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
       propertyPath: camCtrl
       value: 
       objectReference: {fileID: 2094612022}
@@ -2885,6 +2902,11 @@ PrefabInstance:
       propertyPath: moneyText
       value: 
       objectReference: {fileID: 2044720601}
+    - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: closeCamSize
+      value: 6
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -2892,7 +2914,7 @@ PrefabInstance:
   m_SourcePrefab: {fileID: 100100000, guid: 01e61cd7d489a7a438323227f6359bf7, type: 3}
 --- !u!114 &4860603491712304916 stripped
 MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 5225365414803256499, guid: 01e61cd7d489a7a438323227f6359bf7,
+  m_CorrespondingSourceObject: {fileID: 1086702779089052158, guid: 01e61cd7d489a7a438323227f6359bf7,
     type: 3}
   m_PrefabInstance: {fileID: 4860603491712304915}
   m_PrefabAsset: {fileID: 0}
