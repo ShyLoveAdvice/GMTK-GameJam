@@ -404,7 +404,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editType: 4
-  globalScaleRemains: 0
 --- !u!1 &28385993
 GameObject:
   m_ObjectHideFlags: 0
@@ -772,7 +771,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editType: 1
-  globalScaleRemains: 0
 --- !u!1 &851017582
 GameObject:
   m_ObjectHideFlags: 0
@@ -1049,7 +1047,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editType: 3
-  globalScaleRemains: 0
 --- !u!1 &954652437
 GameObject:
   m_ObjectHideFlags: 0
@@ -1238,6 +1235,7 @@ MonoBehaviour:
   rotatingSpeed: 3
   minScale: 0.3
   maxScale: 4
+  buttonSize: 0.24
 --- !u!1001 &1147025730
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1862,7 +1860,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editType: 0
-  globalScaleRemains: 0
 --- !u!1 &1887930466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2675,7 +2672,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   editType: 2
-  globalScaleRemains: 0
 --- !u!1001 &4860603491712304915
 PrefabInstance:
   m_ObjectHideFlags: 0
