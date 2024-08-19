@@ -99,6 +99,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   price: 100
+  leftTop: {x: 0.99821806, y: 0.58377934}
+  rightBottom: {x: -1.0160427, y: -0.45900154}
 --- !u!50 &3425250210977872585
 Rigidbody2D:
   serializedVersion: 4
