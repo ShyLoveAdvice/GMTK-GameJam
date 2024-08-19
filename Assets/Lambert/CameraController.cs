@@ -3,16 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using Cinemachine;
 using Sirenix.OdinInspector;
+using System;
 
 public class CameraController : Singleton<CameraController>
 {
-    public float transitionTime = 1.5f;
-    public GameObject closeCamera;
-    public float closeCameraSize;
-    public GameObject farCamera;
-    public float farCameraSize;
-    public Transform follow;
-
     public float lerp_time;
 
     public CinemachineBrain cinemachineBrain;
@@ -29,17 +23,11 @@ public class CameraController : Singleton<CameraController>
         base.Awake();
         m_camera = GetComponent<Camera>();
         cinemachineBrain = GetComponent<CinemachineBrain>();
-        cinemachineBrain.m_DefaultBlend.m_Time = transitionTime;
     }
     private void Start() {
         activeVirtualCam = cinemachineBrain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
     }
     private void Update() {
-        if(Input.GetKeyDown(KeyCode.P))
-        {
-            ChangeToCloseCamera(follow);
-        }
-
         if(lerping)
         {
             if(Vector3.Distance(transform.position, target_lerp_pos) > 0.1f)
@@ -71,23 +59,43 @@ public class CameraController : Singleton<CameraController>
 
         lerping = true;
     }
+    public void ResizeNReposeCamera(Transform follow, float size)
+    {
+        target_lerp_pos = follow.position;
+        target_lerp_size = size;
+
+        lerp_pos_speed = Vector3.Magnitude(target_lerp_pos - transform.position) / lerp_time;
+        lerp_size_speed = (target_lerp_size - m_camera.orthographicSize) / lerp_time;
+
+        lerping = true;
+    }
+    [Obsolete]
     public void ChangeToFarCamera()
     {
-        farCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = farCameraSize;
-        closeCamera.SetActive(false);
-        farCamera.SetActive(true);
+        // farCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = farCameraSize;
+        // closeCamera.SetActive(false);
+        // farCamera.SetActive(true);
 
-        lerping = false;
-        activeVirtualCam = cinemachineBrain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
+        // lerping = false;
+
+        // StartCoroutine(SetActiveVirtualCam());
     }
+    [Obsolete]
     public void ChangeToCloseCamera(Transform follow)
     {
-        closeCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = closeCameraSize;
-        farCamera.SetActive(false);
-        closeCamera.SetActive(true);
-        closeCamera.GetComponent<CinemachineVirtualCamera>().Follow = follow;
+        // closeCamera.GetComponent<CinemachineVirtualCamera>().m_Lens.OrthographicSize = closeCameraSize;
+        // farCamera.SetActive(false);
+        // closeCamera.SetActive(true);
+        // closeCamera.GetComponent<CinemachineVirtualCamera>().Follow = follow;
 
-        lerping = false;
+        // lerping = false;
+
+        // StartCoroutine(SetActiveVirtualCam());
+    }
+    [Obsolete]
+    private IEnumerator SetActiveVirtualCam()
+    {
+        yield return null;
         activeVirtualCam = cinemachineBrain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
     }
 }
