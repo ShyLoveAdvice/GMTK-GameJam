@@ -5,8 +5,7 @@ using UnityEngine;
 public class GameManager : Singleton<GameManager>
 {
     public CameraController camCtrl;
-    public Inventory inventory;
-    public Transform follow;// debug
+    public Transform animalParent; //used to initialize variable 'animals'
 
     Animal[] animals;
     int selectedAnimal;
@@ -21,25 +20,25 @@ public class GameManager : Singleton<GameManager>
     }
     void SelectAnimal(Animal animal)
     {
-        camCtrl.ChangeToCloseCamera(inventory.animals[selectedAnimal].transform);
+        camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, 5);
         DraggableManager.instance.SetAnimal(animal);
     }
     void ChooseAnimal(Vector2 mousePos)
     {
         float minDist = float.MaxValue;
         selectedAnimal = -1;
-        for (int i = 0; i < inventory.animals.Length; ++i)
+        for (int i = 0; i < animals.Length; ++i)
         {
-            float dist = (mousePos - (Vector2)inventory.animals[i].transform.position).magnitude;
+            float dist = (mousePos - (Vector2)animals[i].transform.position).magnitude;
             if (dist < minDist)
             {
                 selectedAnimal = i;
                 minDist = dist;
             }
         }
-        if (selectedAnimal == 0 || inventory.animals[selectedAnimal].completed)
+        if (selectedAnimal == 0 || animals[selectedAnimal].completed)
         {
-            SelectAnimal(inventory.animals[selectedAnimal]);
+            SelectAnimal(animals[selectedAnimal]);
         }
         else
             selectedAnimal = -1;
@@ -50,15 +49,20 @@ public class GameManager : Singleton<GameManager>
             DraggableManager.instance.SetAnimal(null);
         selectedAnimal = -1;
         int numCompletedAnimal;
-        for(numCompletedAnimal=0;numCompletedAnimal< inventory.animals.Length; ++numCompletedAnimal)
-            if (!inventory.animals[numCompletedAnimal].completed)
+        for(numCompletedAnimal=0;numCompletedAnimal< animals.Length; ++numCompletedAnimal)
+            if (!animals[numCompletedAnimal].completed)
                 break;
         numCompletedAnimal = (numCompletedAnimal / 5 + 1) * 5;
-        camCtrl.ChangeToFarCamera();
-        camCtrl.ResizeNReposeCamera(inventory.animals[0].transform, inventory.animals[numCompletedAnimal].transform, 5);
+        camCtrl.ResizeNReposeCamera(animals[0].transform, animals[numCompletedAnimal].transform, 5);
     }
     private void Start()
     {
+        int childCount = animalParent.childCount;
+        animals = new Animal[childCount];
+        for(int i = 0; i < childCount; ++i)
+        {
+            animals[i] = animalParent.GetChild(i).GetComponent<Animal>();
+        }
         ChangeToFarCamera();
         DraggableManager.instance.SetAnimal(null);
     }

@@ -28,7 +28,6 @@ public class CameraController : Singleton<CameraController>
     {
         yield return null;
         activeVirtualCam = cinemachineBrain.ActiveVirtualCamera.VirtualCameraGameObject.GetComponent<CinemachineVirtualCamera>();
-        Debug.Log(activeVirtualCam == null);
     }
     private void Update()
     {

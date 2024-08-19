@@ -6,5 +6,4 @@ using UnityEngine;
 public class Inventory : ScriptableObject
 {
     public GameObject[] brisks;
-    public Animal[] animals;
 }
