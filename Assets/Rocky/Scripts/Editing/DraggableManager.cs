@@ -13,6 +13,9 @@ public class DraggableManager : Singleton<DraggableManager>
     [SerializeField] GameObject buttonPrefab;
     [SerializeField] Transform briskPanelUI;
     [SerializeField] TextMeshProUGUI priceText;
+    [Header("score function")]
+    [SerializeField] float scorePerPixel;
+    [SerializeField] float offset1, power, offset2;
 
     float priceSum;
     private DraggableObjects selectedObject;
@@ -56,7 +59,7 @@ public class DraggableManager : Singleton<DraggableManager>
             if (animal.HomeIsComplete())
             {
                 Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
-                float income = 0.0025f * res.totalNumPixelsCovered * Mathf.Pow(res.percent + .56f, 5.7f) + .2f;
+                float income = scorePerPixel * res.totalNumPixelsCovered * Mathf.Pow(res.percent + offset1, power) + offset2;
                 animal.completed = true;
                 GameManager.instance.Money += income - priceSum;
                 //convert draggable objects to static objects
@@ -82,7 +85,7 @@ public class DraggableManager : Singleton<DraggableManager>
         if (animal.HomeIsComplete())
         {
             Capturer.AnalyzeResult res = Capturer.instance.Capture(animal.transform.position);
-            float income = 0.0025f * res.totalNumPixelsCovered * Mathf.Pow(res.percent + .56f, 5.7f) + .2f;
+            float income = 0.0025f * res.totalNumPixelsCovered * (Mathf.Pow(res.percent + .56f, 5.7f) + .2f);
             animal.completed = true;
             GameManager.instance.Money += income - priceSum;
             //convert draggable objects to static objects
