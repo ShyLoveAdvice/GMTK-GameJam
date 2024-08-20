@@ -402,7 +402,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &28385993
@@ -770,7 +770,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &934687613
@@ -914,7 +914,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1013414317
@@ -1173,6 +1173,26 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3422134957637809203, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1455629882}
+    - target: {fileID: 3422134957637809203, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SellObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422134957637809203, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DraggableManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 3422134957637809203, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 4573253137152735139, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.size
@@ -1217,6 +1237,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Lam_Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136234244884377890, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136234244884377890, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136234244884377890, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1455629882}
+    - target: {fileID: 6136234244884377890, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136234244884377890, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SellObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136234244884377890, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DraggableManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 6136234244884377890, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: hoverEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 6224775521861235673, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
@@ -1417,6 +1472,71 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: LoadScene
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].eventID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].eventID
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1455629882}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[1].callback.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SellObject
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: DraggableManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 9177587395777412882, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
@@ -2162,7 +2282,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &4860603491712304915
