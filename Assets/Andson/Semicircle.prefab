@@ -98,7 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d89e5e40a7499a34bb621bd012103b32, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  icon: {fileID: 21300000, guid: 1b71b997608667a42bded072c7f11ab7, type: 3}
+  icon: {fileID: 21300000, guid: 105fc59d3708532418d58e2fcd140f3b, type: 3}
   price: 50
   leftTop: {x: 1.5429659, y: -1.5310593}
   rightBottom: {x: -0.011212349, y: 0.022144318}

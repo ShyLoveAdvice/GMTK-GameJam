@@ -188,6 +188,9 @@ public class DraggableManager : Singleton<DraggableManager>
         {
             SelectedObject = null;
         }
+		else if(Input.GetKey(KeyCode.Return)){
+			animal.completed=true;
+		}
     }
     private void FixedUpdate()
     {
