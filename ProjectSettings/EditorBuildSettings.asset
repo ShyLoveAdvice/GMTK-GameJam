@@ -9,9 +9,6 @@ EditorBuildSettings:
     path: Assets/Lambert/Scene/StartScreen.unity
     guid: 81d0f3317df06e6489ccb66517e34e8c
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
-  - enabled: 1
     path: Assets/Rocky/Scenes/Dragging.unity
     guid: 8b76e27836aa45f43818de9b2253271e
   - enabled: 1
