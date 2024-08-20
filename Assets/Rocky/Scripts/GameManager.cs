@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : Singleton<GameManager>
 {
@@ -12,6 +13,8 @@ public class GameManager : Singleton<GameManager>
     public CameraController camCtrl;
     public float closeCamSize;
     public Vector2 closeCamPosOffset, farCamPosOffset;
+    [SerializeField] float fadeTime;
+    [SerializeField] Image closeBGImg;
     [Header("Money")]
     public float initialMoney;
     public TextMeshProUGUI moneyText;
@@ -19,6 +22,7 @@ public class GameManager : Singleton<GameManager>
     Animal[] animals;
     int selectedAnimal;
 	int prevSelectedAnimal;
+    Coroutine fadeCoroutine;
     private float money;
     public float Money
     {
@@ -47,6 +51,7 @@ public class GameManager : Singleton<GameManager>
             SFXPlayer.instance.PlayAnimalSFX(animal.type);
         camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, closeCamSize, closeCamPosOffset);
         DraggableManager.instance.SetAnimal(animal);
+        FadeCloseBGImg(0, 1);
     }
     public void NextAnimal()
     {
@@ -101,6 +106,28 @@ public class GameManager : Singleton<GameManager>
         numCompletedAnimal = (numCompletedAnimal / 5 + 1) * 5 - 1;
 		if(numCompletedAnimal>=animals.Length) numCompletedAnimal=animals.Length-1;
         camCtrl.ResizeNReposeCamera(animals[0].transform, animals[numCompletedAnimal].transform, 5, farCamPosOffset);
+        FadeCloseBGImg(1f, 0f);
+    }
+    void FadeCloseBGImg(float beginAlpha, float endAlpha)
+    {
+        if (fadeCoroutine != null)
+            StopCoroutine(fadeCoroutine);
+        fadeCoroutine = StartCoroutine(FadeCloseBGImage_Coroutine(beginAlpha, endAlpha));
+    }
+    IEnumerator FadeCloseBGImage_Coroutine(float beginAlpha, float endAlpha)
+    {
+        Color color = closeBGImg.color;
+        color.a = beginAlpha;
+        WaitForFixedUpdate wait = new WaitForFixedUpdate();
+        int i = (int)(fadeTime / Time.fixedDeltaTime);
+        float dalpha = (endAlpha-beginAlpha) / i;
+        for (; i > 0; ++i)
+        {
+            yield return wait;
+            color.a += dalpha;
+            closeBGImg.color = color;
+        }
+        fadeCoroutine = null;
     }
     private void Start()
     {

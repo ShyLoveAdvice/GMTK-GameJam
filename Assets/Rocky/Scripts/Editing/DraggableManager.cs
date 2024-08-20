@@ -7,7 +7,6 @@ using UnityEngine.UI;
 
 public class DraggableManager : Singleton<DraggableManager>
 {
-    public Animal animal;
     public EditingTool editingTool;
     public Inventory briskInventory;
     [SerializeField] GameObject buttonPrefab;
@@ -17,6 +16,7 @@ public class DraggableManager : Singleton<DraggableManager>
     [SerializeField] float scorePerPixel;
     [SerializeField] float offset1, power, offset2;
 
+    [HideInInspector] public Animal animal;
     float priceSum;
     private DraggableObjects selectedObject;
     private List<DraggableObjects> brisks;
