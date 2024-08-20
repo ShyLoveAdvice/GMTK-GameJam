@@ -51,7 +51,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cb9e23e08ab8f3342b19b82774dd5ba0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animal: {fileID: 0}
   editingTool: {fileID: 0}
   briskInventory: {fileID: 11400000, guid: 2cab309d693927741bc8913f5b47e2fb, type: 2}
   buttonPrefab: {fileID: 8524639035362340696, guid: 7b20e7377d818e549b7bfa5fbef8350f,
@@ -62,6 +61,7 @@ MonoBehaviour:
   offset1: 0
   power: 0
   offset2: 0
+  animal: {fileID: 0}
 --- !u!114 &1381302390553138697
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,6 +96,8 @@ MonoBehaviour:
   closeCamSize: 6.5
   closeCamPosOffset: {x: 0, y: 0}
   farCamPosOffset: {x: 0, y: 0}
+  fadeTime: 0
+  closeBGImg: {fileID: 0}
   initialMoney: 3000
   moneyText: {fileID: 0}
 --- !u!1 &8691860405673823119
@@ -1930,6 +1932,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: moth
       objectReference: {fileID: 0}
+    - target: {fileID: 4765034319862542193, guid: b2cb10d199bf61048b1346c56d172e20,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 6698976110145292408, guid: b2cb10d199bf61048b1346c56d172e20,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3384,6 +3391,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4219962239299406508, guid: 04f58120069a98b458a27cf0644f06b7,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7807223436697591700, guid: 04f58120069a98b458a27cf0644f06b7,
         type: 3}

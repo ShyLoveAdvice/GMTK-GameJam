@@ -43,6 +43,13 @@ public class GameManager : Singleton<GameManager>
 			ChangeToFarCamera();
 		}
 	}
+	public void OnAnimalCompleted(){
+		for(int i=0;i<animals.Length;++i){
+			if(!animals[i].completed)
+				return;
+		}
+		FadeCloseBGImg(0,1);
+	}
     void SelectAnimal(Animal animal)
     {
 		//prevSelectedAnimal=animals[selectedAnimal];
@@ -51,7 +58,6 @@ public class GameManager : Singleton<GameManager>
             SFXPlayer.instance.PlayAnimalSFX(animal.type);
         camCtrl.ResizeNReposeCamera(animals[selectedAnimal].transform, closeCamSize, closeCamPosOffset);
         DraggableManager.instance.SetAnimal(animal);
-        FadeCloseBGImg(0, 1);
     }
     public void NextAnimal()
     {
@@ -106,7 +112,6 @@ public class GameManager : Singleton<GameManager>
         numCompletedAnimal = (numCompletedAnimal / 5 + 1) * 5 - 1;
 		if(numCompletedAnimal>=animals.Length) numCompletedAnimal=animals.Length-1;
         camCtrl.ResizeNReposeCamera(animals[0].transform, animals[numCompletedAnimal].transform, 5, farCamPosOffset);
-        FadeCloseBGImg(1f, 0f);
     }
     void FadeCloseBGImg(float beginAlpha, float endAlpha)
     {

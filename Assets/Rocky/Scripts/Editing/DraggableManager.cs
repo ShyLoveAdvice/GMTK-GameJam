@@ -74,7 +74,8 @@ public class DraggableManager : Singleton<DraggableManager>
                 brisks.Clear();
                 SetAnimal(animal);
                 SFXPlayer.instance.PlayAnimalSFX(animal.type);
-            }
+				GameManager.instance.OnAnimalCompleted();
+			}
             else
                 GameManager.instance.msgBox.OpenMessageBox("your build is incomplete!");
         }
@@ -192,6 +193,7 @@ public class DraggableManager : Singleton<DraggableManager>
         }
 		else if(Input.GetKey(KeyCode.Return)){
 			animal.completed=true;
+			GameManager.instance.OnAnimalCompleted();
 		}
     }
     private void FixedUpdate()
