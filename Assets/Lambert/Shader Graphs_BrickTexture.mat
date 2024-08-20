@@ -58,7 +58,7 @@ Material:
     - _HowManyTexture: 500
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _TexturePixelSize: 327.8
+    - _TexturePixelSize: 100
     - _TextureTiling: 16
     m_Colors:
     - _TextureTiling: {r: 19, g: 11, b: 0, a: 0}
