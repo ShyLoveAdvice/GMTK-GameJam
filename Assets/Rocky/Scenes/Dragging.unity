@@ -2752,7 +2752,7 @@ PrefabInstance:
     - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: scorePerPixel
-      value: 0.005
+      value: 0.0075
       objectReference: {fileID: 0}
     - target: {fileID: 1854115987781418118, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
@@ -2952,7 +2952,7 @@ PrefabInstance:
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: initialMoney
-      value: 300000
+      value: 2000
       objectReference: {fileID: 0}
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
@@ -2962,7 +2962,7 @@ PrefabInstance:
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: farCamPosOffset.y
-      value: 0
+      value: 20
       objectReference: {fileID: 0}
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
