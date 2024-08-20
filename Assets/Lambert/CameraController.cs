@@ -4,6 +4,7 @@ using UnityEngine;
 using Cinemachine;
 using Sirenix.OdinInspector;
 using System;
+using UnityEngine.Events;
 
 public class CameraController : Singleton<CameraController>
 {
@@ -17,6 +18,9 @@ public class CameraController : Singleton<CameraController>
     Vector3 target_lerp_pos;
     float target_lerp_size;
     bool lerping;
+
+    public UnityEvent CloseCamEvent;
+    public UnityEvent FarCamEvent;
 
     public override void Awake()
     {
@@ -66,6 +70,8 @@ public class CameraController : Singleton<CameraController>
         lerp_size_speed = (target_lerp_size - m_camera.orthographicSize) / lerp_time;
 
         lerping = true;
+
+        FarCamEvent.Invoke();
     }
     public void ResizeNReposeCamera(Transform follow, float size, Vector3 offset)
     {
@@ -76,6 +82,8 @@ public class CameraController : Singleton<CameraController>
         lerp_size_speed = (target_lerp_size - m_camera.orthographicSize) / lerp_time;
 
         lerping = true;
+
+        CloseCamEvent.Invoke();
     }
     [Obsolete]
     public void ChangeToFarCamera()

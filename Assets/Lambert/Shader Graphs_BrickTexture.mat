@@ -30,7 +30,7 @@ Material:
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
-  m_CustomRenderQueue: 3031
+  m_CustomRenderQueue: -1
   stringTagMap: {}
   disabledShaderPasses: []
   m_LockedProperties: 
@@ -57,8 +57,8 @@ Material:
     m_Floats:
     - _HowManyTexture: 500
     - _QueueControl: 0
-    - _QueueOffset: 31
-    - _TexturePixelSize: 327.8
+    - _QueueOffset: 0
+    - _TexturePixelSize: 100
     - _TextureTiling: 16
     m_Colors:
     - _TextureTiling: {r: 19, g: 11, b: 0, a: 0}
