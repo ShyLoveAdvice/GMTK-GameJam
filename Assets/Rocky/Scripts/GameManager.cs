@@ -85,6 +85,7 @@ public class GameManager : Singleton<GameManager>
             if (!animals[numCompletedAnimal].completed)
                 break;
         numCompletedAnimal = (numCompletedAnimal / 5 + 1) * 5 - 1;
+		if(numCompletedAnimal>=animals.Length) numCompletedAnimal=animals.Length-1;
         camCtrl.ResizeNReposeCamera(animals[0].transform, animals[numCompletedAnimal].transform, 5, farCamPosOffset);
     }
     private void Start()
