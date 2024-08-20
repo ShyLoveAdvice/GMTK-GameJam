@@ -464,7 +464,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "4. Press the \u201CScore\u201D button when you finish building the shelter
+  m_text: "Press the \u201CScore\u201D button when you finish building the shelter
     to see your earning. Press the right button to move to the next animal after
     pressing the \u201CScore\u201D button.\r"
   m_isRightToLeft: 0
@@ -1554,81 +1554,6 @@ MonoBehaviour:
   - {fileID: 1954378163}
   - {fileID: 27429462}
   - {fileID: 915035127}
---- !u!1 &828159846
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 828159847}
-  - component: {fileID: 828159849}
-  - component: {fileID: 828159848}
-  m_Layer: 5
-  m_Name: Arrow
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &828159847
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828159846}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9023699, w: 0.43096244}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1807904886}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 128.943}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -664, y: -271}
-  m_SizeDelta: {x: 278.83, y: 824.34}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &828159848
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828159846}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_RaycastTarget: 1
-  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
-  m_Maskable: 1
-  m_OnCullStateChanged:
-    m_PersistentCalls:
-      m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d5ec1f7d3953a2d4ca607ad4e178109b, type: 3}
-  m_Type: 0
-  m_PreserveAspect: 0
-  m_FillCenter: 1
-  m_FillMethod: 4
-  m_FillAmount: 1
-  m_FillClockwise: 1
-  m_FillOrigin: 0
-  m_UseSpriteMesh: 0
-  m_PixelsPerUnitMultiplier: 1
---- !u!222 &828159849
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 828159846}
-  m_CullTransparentMesh: 1
 --- !u!1 &841570601
 GameObject:
   m_ObjectHideFlags: 0
@@ -1868,11 +1793,12 @@ RectTransform:
   m_Children:
   - {fileID: 841570602}
   - {fileID: 2037666054}
+  - {fileID: 1512698305}
   m_Father: {fileID: 732421861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155.35, y: 239.51}
+  m_AnchoredPosition: {x: -165.44, y: -380.48}
   m_SizeDelta: {x: 734.05, y: 216.71}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &915035129
@@ -1895,7 +1821,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 5. You can press the left button to go to the previous animal and the eye
+  m_text: You can press the left button to go to the previous animal and the eye
     button to see the whole picture.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -2307,7 +2233,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 2. You can buy different blocks and place them around the animal. You can
+  m_text: You can buy different blocks and place them around the animal. You can
     rotate and scale the blocks.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3429,6 +3355,81 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0640dc8602e5d3441af1210018c3342e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1512698304
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1512698305}
+  - component: {fileID: 1512698307}
+  - component: {fileID: 1512698306}
+  m_Layer: 5
+  m_Name: Arrow (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1512698305
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512698304}
+  m_LocalRotation: {x: -0, y: -0, z: 0.89559835, w: 0.4448635}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 915035128}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 127.171}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -427.22, y: -65.76}
+  m_SizeDelta: {x: 118.03, y: 150.89}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1512698306
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512698304}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: d5ec1f7d3953a2d4ca607ad4e178109b, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1512698307
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1512698304}
+  m_CullTransparentMesh: 1
 --- !u!1 &1684291086
 GameObject:
   m_ObjectHideFlags: 0
@@ -3604,7 +3605,6 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1340620620}
-  - {fileID: 828159847}
   m_Father: {fileID: 732421861}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3632,7 +3632,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 1. Hi, wecome to the animal shelter. Here, you can build shelters for animals.
+  m_text: Hi, wecome to the animal shelter. Here, you can build shelters for animals.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -3908,8 +3908,8 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 3. The less space you left around the animal, the better the shelter is.
-    The better the shelter is, the more money you can earn.
+  m_text: The less space you left around the animal, the better the shelter is. The
+    better the shelter is, the more money you can earn.
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -4011,16 +4011,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2037666053}
-  m_LocalRotation: {x: -0, y: -0, z: 0.9172152, w: 0.39839214}
+  m_LocalRotation: {x: -0, y: -0, z: 0.35744864, w: 0.9339328}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 915035128}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 133.045}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 41.887}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -425, y: -89}
+  m_AnchoredPosition: {x: -427, y: 194}
   m_SizeDelta: {x: 189.93, y: 189.93}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2037666055

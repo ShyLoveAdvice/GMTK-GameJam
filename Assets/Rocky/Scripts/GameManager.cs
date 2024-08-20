@@ -143,11 +143,13 @@ public class GameManager : Singleton<GameManager>
         {
             animals[i] = animalParent.GetChild(i).GetComponent<Animal>();
         }
-        ChangeToFarCamera();
         //disable draggable uis
         DraggableManager.instance.SetAnimal(null);
         //set initial money
         Money = initialMoney;
+        //change camera to the first animal
+        selectedAnimal = 0;
+        SelectAnimal(animals[selectedAnimal]);
     }
     private void Update()
     {
