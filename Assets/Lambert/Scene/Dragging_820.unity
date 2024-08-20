@@ -402,7 +402,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &28385993
@@ -770,7 +770,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &934687613
@@ -914,7 +914,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1013414317
@@ -2128,7 +2128,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &4860603491712304915
@@ -2144,6 +2144,11 @@ PrefabInstance:
       propertyPath: cam
       value: 
       objectReference: {fileID: 1887930467}
+    - target: {fileID: 1745624667002894756, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 88da19ef2b9d0fa4cb43f2a3cbfd5564, type: 3}
     - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: power
@@ -2179,11 +2184,46 @@ PrefabInstance:
       propertyPath: scorePerPixel
       value: 0.075
       objectReference: {fileID: 0}
+    - target: {fileID: 2233803478737448178, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 8025cb1f5c09cc344890965cfe9cc293, type: 3}
+    - target: {fileID: 4913813755274580328, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 0d224f6fa8927dd44afd97bf6f5dec9d, type: 3}
     - target: {fileID: 5225365414803256499, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: gameSceneName
       value: EndScreen
       objectReference: {fileID: 0}
+    - target: {fileID: 6107512358602979457, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 6a42731a5bb16ba47bd4891ab8ae4920, type: 3}
+    - target: {fileID: 6579925175195942715, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: a6a3de5ff27d98445afe0fa19d9e01e2, type: 3}
+    - target: {fileID: 6827236986819459047, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 69aad1789274d3c4390cda780b1d1a5c, type: 3}
+    - target: {fileID: 7181644291175196523, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: b043c09ec72316643a249b2dac961d7a, type: 3}
+    - target: {fileID: 7684691521043936610, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 8300000, guid: 3c8d31e1298956e4fbde3d845c2c9b10, type: 3}
     - target: {fileID: 7856551134724369823, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: m_Name

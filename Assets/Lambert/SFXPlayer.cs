@@ -4,7 +4,8 @@ using UnityEngine;
 
 public enum Animals
 {
-    Bat, Chicken, Deer, Dog, Duck, Elephant, Frog, GoldFish, Mouse, Ladybug, Pig, Rabbit, Raccoon, Sheep, Snake, Spider, Tiger, Turtle, Chimpanzee, Hipo, Girraf, Lion, Octopus, e, Yellowying, Pelican, Penguin
+    Bat, Chicken, Deer, Dog, Duck, Elephant, Frog, GoldFish, Mouse, Ladybug, Pig, Rabbit, Raccoon, Sheep, Snake, Spider, Tiger, Turtle, 
+    Chimpanzee, Hipo, Giraffe, Lion, Octopus, e, Yellowying, Pelican, Penguin, Bird, Horse
 }
 public class SFXPlayer : Singleton<SFXPlayer>
 {
@@ -28,6 +29,13 @@ public class SFXPlayer : Singleton<SFXPlayer>
     public List<AudioSource> Turtle;
     public List<AudioSource> Pelican;
     public List<AudioSource> Penguin;
+    public List<AudioSource> Bird;
+    public List<AudioSource> Chimpanzee;
+    public List<AudioSource> Giraffe;
+    public List<AudioSource> Hipo;
+    public List<AudioSource> Horse;
+
+
 
     public List<AudioSource> PieceLetGo;
     public List<AudioSource> PiecePickUp;
@@ -81,6 +89,16 @@ public class SFXPlayer : Singleton<SFXPlayer>
                 Turtle.Add(audioSource);
             if (transform.GetChild(i).name.Contains("Pelican"))
                 Pelican.Add(audioSource);
+            if (transform.GetChild(i).name.Contains("Bird"))
+                Bird.Add(audioSource);
+            if (transform.GetChild(i).name.Contains("Chimpanzee"))
+                Chimpanzee.Add(audioSource);
+            if (transform.GetChild(i).name.Contains("Giraffe"))
+                Giraffe.Add(audioSource);
+            if (transform.GetChild(i).name.Contains("Hipo"))
+                Hipo.Add(audioSource);
+            if (transform.GetChild(i).name.Contains("Horse"))
+                Horse.Add(audioSource);
             if (transform.GetChild(i).name.Contains("Penguin"))
                 Penguin.Add(audioSource);
 
@@ -155,6 +173,21 @@ public class SFXPlayer : Singleton<SFXPlayer>
                 return;
             case Animals.Penguin:
                 PlayPenguinSFX();
+                return;
+            case Animals.Bird:
+                PlayRandomSFX(Bird);
+                return;
+            case Animals.Chimpanzee:
+                PlayRandomSFX(Chimpanzee);
+                return;
+            case Animals.Giraffe:
+                PlayRandomSFX(Giraffe);
+                return;
+            case Animals.Hipo:
+                PlayRandomSFX(Hipo);
+                return;
+            case Animals.Horse:
+                PlayRandomSFX(Horse);
                 return;
                 //default:
         }
