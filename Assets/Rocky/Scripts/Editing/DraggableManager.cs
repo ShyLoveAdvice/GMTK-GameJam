@@ -28,11 +28,14 @@ public class DraggableManager : Singleton<DraggableManager>
         get => selectedObject;
         set
         {
-            if (selectedObject!=null)
+            if (selectedObject!=null){
                 selectedObject.EnableCollider(true);
+				SFXPlayer.instance.PlayPieceLetGoSFX();
+			}
             selectedObject = value;
             if (value != null)
             {
+				SFXPlayer.instance.PlayPiecePickUpSFX();
                 InitializeTool();
                 selectedObject.EnableCollider(false);
             }

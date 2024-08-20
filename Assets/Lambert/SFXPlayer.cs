@@ -5,7 +5,7 @@ using UnityEngine;
 public enum Animals
 {
     Bat, Chicken, Deer, Dog, Duck, Elephant, Frog, GoldFish, Mouse, Ladybug, Pig, Rabbit, Raccoon, Sheep, Snake, Spider, Tiger, Turtle, 
-    Chimpanzee, Hipo, Giraffe, Lion, Octopus, e, Yellowying, Pelican, Penguin, Bird, Horse
+    Chimpanzee, Hipo, Giraffe, Lion, Octopus, e, Yellowying, Pelican, Penguin, Bird, Horse, PieceLetGo, PiecePlace, PiecePickUp
 }
 public class SFXPlayer : Singleton<SFXPlayer>
 {
@@ -163,7 +163,7 @@ public class SFXPlayer : Singleton<SFXPlayer>
                 PlaySpiderSFX();
                 return;
             case Animals.Tiger:
-                PlayBatSFX();
+                PlayTigerSFX();
                 return;
             case Animals.Turtle:
                 PlayTurtleSFX();
@@ -189,6 +189,15 @@ public class SFXPlayer : Singleton<SFXPlayer>
             case Animals.Horse:
                 PlayRandomSFX(Horse);
                 return;
+			case Animals.PieceLetGo:
+				PlayRandomSFX(PieceLetGo);
+				return;
+			case Animals.PiecePlace:
+				PlayRandomSFX(PiecePlace);
+				return;
+			case Animals.PiecePickUp:
+				PlayRandomSFX(PiecePickUp);
+				return;
                 //default:
         }
     }
