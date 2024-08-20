@@ -4,7 +4,7 @@ using UnityEngine;
 
 public enum Animals
 {
-    Bat, Chicken, Deer, Dog, Duck, Elephant, Frog, GoldFish, Mouse, Ladybug, Pig, Rabbit, Raccoon, Sheep, Snake, Spider, Tiger, Turtle
+    Bat, Chicken, Deer, Dog, Duck, Elephant, Frog, GoldFish, Mouse, Ladybug, Pig, Rabbit, Raccoon, Sheep, Snake, Spider, Tiger, Turtle, Chimpanzee, Hipo, Girraf, Lion, Octopus, e, Yellowying, Pelican, Penguin
 }
 public class SFXPlayer : Singleton<SFXPlayer>
 {
@@ -26,6 +26,8 @@ public class SFXPlayer : Singleton<SFXPlayer>
     public List<AudioSource> Spider;
     public List<AudioSource> Tiger;
     public List<AudioSource> Turtle;
+    public List<AudioSource> Pelican;
+    public List<AudioSource> Penguin;
 
     public List<AudioSource> PieceLetGo;
     public List<AudioSource> PiecePickUp;
@@ -77,6 +79,10 @@ public class SFXPlayer : Singleton<SFXPlayer>
                 Tiger.Add(audioSource);
             if (transform.GetChild(i).name.Contains("Turtle"))
                 Turtle.Add(audioSource);
+            if (transform.GetChild(i).name.Contains("Pelican"))
+                Pelican.Add(audioSource);
+            if (transform.GetChild(i).name.Contains("Penguin"))
+                Penguin.Add(audioSource);
 
             if (transform.GetChild(i).name.Contains("Piece Let Go"))
                 PieceLetGo.Add(audioSource);
@@ -143,6 +149,12 @@ public class SFXPlayer : Singleton<SFXPlayer>
                 return;
             case Animals.Turtle:
                 PlayTurtleSFX();
+                return;
+            case Animals.Pelican:
+                PlayPelicanSFX();
+                return;
+            case Animals.Penguin:
+                PlayPenguinSFX();
                 return;
                 //default:
         }
@@ -218,6 +230,14 @@ public class SFXPlayer : Singleton<SFXPlayer>
     public void PlayTurtleSFX()
     {
         PlayRandomSFX(Turtle);
+    }
+    public void PlayPelicanSFX()
+    {
+        PlayRandomSFX(Pelican);
+    }
+    public void PlayPenguinSFX()
+    {
+        PlayRandomSFX(Penguin);
     }
     public void PlayPieceLetGoSFX()
     {
