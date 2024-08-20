@@ -77,7 +77,7 @@ public class GameManager : Singleton<GameManager>
                 minDist = dist;
             }
         }
-        if (selectedAnimal == 0 || animals[selectedAnimal-1].completed)
+        if (minDist<9f && (selectedAnimal == 0 || animals[selectedAnimal-1].completed))
         {
             SelectAnimal(animals[selectedAnimal]);
         }
