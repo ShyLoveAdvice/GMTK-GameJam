@@ -136,7 +136,7 @@ public class DraggableManager : Singleton<DraggableManager>
     public void UpdatePriceText()
     {
         CalculatePriceSum();
-        priceText.text = "Cost: "+priceSum.ToString("F2");
+        priceText.text = "- "+priceSum.ToString("F2");
     }
     void InitializeTool()
     {
@@ -168,6 +168,8 @@ public class DraggableManager : Singleton<DraggableManager>
     }
     public void SellObject()
     {
+        Debug.Log("sell object");
+        if (selectedObject == null) return;
         int i = brisks.IndexOf(selectedObject);
         brisks[i] = brisks[brisks.Count - 1];
         brisks.RemoveAt(brisks.Count - 1);
