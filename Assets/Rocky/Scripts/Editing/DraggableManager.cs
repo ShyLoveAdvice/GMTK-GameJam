@@ -62,6 +62,7 @@ public class DraggableManager : Singleton<DraggableManager>
                 float income = scorePerPixel * res.totalNumPixelsCovered * Mathf.Pow(res.percent + offset1, power) + offset2;
                 animal.completed = true;
                 GameManager.instance.Money += income - priceSum;
+                GameManager.instance.msgBox.OpenMessageBox($"Your net earning is {income - priceSum}! cost: {priceSum}, earned: {income}");
                 //convert draggable objects to static objects
                 for (int i = brisks.Count - 1; i > -1; --i)
                 {
@@ -73,7 +74,6 @@ public class DraggableManager : Singleton<DraggableManager>
                 brisks.Clear();
                 SetAnimal(animal);
                 SFXPlayer.instance.PlayAnimalSFX(animal.type);
-                GameManager.instance.msgBox.OpenMessageBox($"Your net earning is {income - priceSum}! cost: {priceSum}, earned: {income}");
             }
             else
                 GameManager.instance.msgBox.OpenMessageBox("your build is incomplete!");
@@ -88,6 +88,7 @@ public class DraggableManager : Singleton<DraggableManager>
             float income = 0.0025f * res.totalNumPixelsCovered * (Mathf.Pow(res.percent + .56f, 5.7f) + .2f);
             animal.completed = true;
             GameManager.instance.Money += income - priceSum;
+            GameManager.instance.msgBox.OpenMessageBox($"Your net earning is {income - priceSum}! cost: {priceSum}, earned: {income}");
             //convert draggable objects to static objects
             for (int i = brisks.Count - 1; i > -1; --i)
             {
@@ -168,7 +169,6 @@ public class DraggableManager : Singleton<DraggableManager>
     }
     public void SellObject()
     {
-        Debug.Log("sell object");
         if (selectedObject == null) return;
         int i = brisks.IndexOf(selectedObject);
         brisks[i] = brisks[brisks.Count - 1];
