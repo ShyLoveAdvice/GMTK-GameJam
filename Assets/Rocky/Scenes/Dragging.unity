@@ -2411,7 +2411,7 @@ PrefabInstance:
     - target: {fileID: 1804244337900170433, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: scorePerPixel
-      value: 0.075
+      value: 0.005
       objectReference: {fileID: 0}
     - target: {fileID: 5225365414803256499, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
