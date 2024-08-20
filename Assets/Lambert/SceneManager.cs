@@ -14,4 +14,7 @@ public class SceneManager : Singleton<SceneManager>
     {
         UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }
+	public void Quit(){
+		Application.Quit();
+	}
 }
