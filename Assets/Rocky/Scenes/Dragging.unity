@@ -573,14 +573,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0.16352195, g: 0.16352195, b: 0.16352195, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 63fdeed4b46ca6546ad10e462bd592b0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1371,6 +1371,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 158.5
       objectReference: {fileID: 0}
+    - target: {fileID: 2561661427198944214, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Type
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2561661427198944214, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 6c22bbf72a6322b47af34ce8a0e328a7,
+        type: 3}
     - target: {fileID: 3422134957637809203, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -1728,18 +1739,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8898746310229420464, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 260.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8898746310229420464, guid: 9f6aa80bb08e49746a7f36f7b3734216,
+        type: 3}
       propertyPath: m_SizeDelta.y
-      value: 75.109985
+      value: 73.85
       objectReference: {fileID: 0}
     - target: {fileID: 8898746310229420464, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: -15.0998535
+      value: -15.099976
       objectReference: {fileID: 0}
     - target: {fileID: 8898746310229420464, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: 56.100098
+      value: 55.399994
       objectReference: {fileID: 0}
     - target: {fileID: 8996180836432609679, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
@@ -1836,6 +1852,7 @@ PrefabInstance:
     - {fileID: 5505678436160846755, guid: 9f6aa80bb08e49746a7f36f7b3734216, type: 3}
     - {fileID: 6582152964937387678, guid: 9f6aa80bb08e49746a7f36f7b3734216, type: 3}
     - {fileID: 5260746672705827788, guid: 9f6aa80bb08e49746a7f36f7b3734216, type: 3}
+    - {fileID: 6286037235851704685, guid: 9f6aa80bb08e49746a7f36f7b3734216, type: 3}
     m_AddedGameObjects:
     - targetCorrespondingSourceObject: {fileID: 8664313280700034139, guid: 9f6aa80bb08e49746a7f36f7b3734216,
         type: 3}
@@ -2616,7 +2633,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b349d3b04f4f1a74cb658575eee8c3bc, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

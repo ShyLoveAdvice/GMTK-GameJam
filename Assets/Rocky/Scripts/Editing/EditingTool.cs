@@ -15,12 +15,7 @@ public class EditingTool : Singleton<EditingTool>
 
     public event System.Action<Vector3[]> onEditted;
     //editing variables
-    Vector3 scalingOffset;
     Quaternion rotationOffset, rotationOffsetNeg;
-    public Vector3 ScalingOffset
-    {
-        get => scalingOffset;
-    }
     public Quaternion RotationOffset
     {
         get => rotationOffset;
@@ -42,7 +37,6 @@ public class EditingTool : Singleton<EditingTool>
     }
     private void Start()
     {
-        scalingOffset = new Vector3(scalingSpeed, scalingSpeed, 0);
         rotationOffset = Quaternion.AngleAxis(rotatingSpeed, Vector3.back);
         rotationOffsetNeg = Quaternion.AngleAxis(rotatingSpeed, Vector3.forward);
         gameObject.SetActive(false);
@@ -81,23 +75,19 @@ public class EditingTool : Singleton<EditingTool>
             //scaling
             if (Input.GetKey(KeyCode.W)) //up
             {
-                targetObj.transform.localScale += scalingOffset;
-                UpdateTransform();
+                SetObjScale(targetObj.transform.localScale.x+scalingSpeed);
             }
             else if (Input.GetKey(KeyCode.S))
             {
-                targetObj.transform.localScale -= scalingOffset;
-                UpdateTransform();
+                SetObjScale(targetObj.transform.localScale.x-scalingSpeed);
             }
             if (Input.GetKey(KeyCode.D))
             {
-                targetObj.transform.rotation *= rotationOffset;
-                UpdateTransform();
+                SetObjRotation(targetObj.transform.rotation * rotationOffset);
             }
             else if (Input.GetKey(KeyCode.A))
             {
-                targetObj.transform.rotation *= rotationOffsetNeg;
-                UpdateTransform();
+                SetObjRotation(targetObj.transform.rotation * rotationOffsetNeg);
             }
             if (Input.GetKey(KeyCode.Delete))
             {

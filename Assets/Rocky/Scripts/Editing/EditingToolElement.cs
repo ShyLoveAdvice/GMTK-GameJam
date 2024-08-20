@@ -47,7 +47,7 @@ public class EditingToolElement : MonoBehaviour
                 break;
             case EditType.Rotate:
                 Vector2 temp = boundingPoints[1] - boundingPoints[0];
-                temp = new Vector2(-temp.y, temp.x).normalized * newScale * 2.0f;
+                temp = new Vector2(-temp.y, temp.x).normalized * newScale;
                 transform.position = (Vector2)(boundingPoints[1] + boundingPoints[0]) / 2 + temp;
                 break;
         }

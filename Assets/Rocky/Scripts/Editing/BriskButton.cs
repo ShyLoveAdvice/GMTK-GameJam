@@ -27,8 +27,8 @@ public class BriskButton : MonoBehaviour
             if (briskPrefab.icon != null)
                 button.image.sprite = briskPrefab.icon;
             //price text
-            TextMeshProUGUI text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
-            text.text = briskPrefab.GetRawPrice().ToString("F0");
+            //TextMeshProUGUI text = transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+            //text.text = briskPrefab.GetRawPrice().ToString("F0");
         }
     }
     // Start is called before the first frame update
