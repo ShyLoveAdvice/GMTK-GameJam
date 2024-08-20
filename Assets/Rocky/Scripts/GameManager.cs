@@ -18,6 +18,7 @@ public class GameManager : Singleton<GameManager>
 
     Animal[] animals;
     int selectedAnimal;
+	int prevSelectedAnimal;
     private float money;
     public float Money
     {
@@ -28,8 +29,19 @@ public class GameManager : Singleton<GameManager>
             moneyText.text = "Money: " + money.ToString("F2");
         }
     }
+	//switch between close and far cam
+	public void SwitchBetweenCloseAndFarCam(){
+		if(selectedAnimal==-1){
+			selectedAnimal=prevSelectedAnimal;
+			SelectAnimal(animals[selectedAnimal]);
+		}
+		else{
+			ChangeToFarCamera();
+		}
+	}
     void SelectAnimal(Animal animal)
     {
+		//prevSelectedAnimal=animals[selectedAnimal];
         switchAnimalButtons.SetActive(true);
         if (animal != null)
             SFXPlayer.instance.PlayAnimalSFX(animal.type);
@@ -77,8 +89,10 @@ public class GameManager : Singleton<GameManager>
         switchAnimalButtons.SetActive(false);
         if (DraggableManager.instance.SelectedObject != null)
             DraggableManager.instance.SelectedObject = null;
-        if (selectedAnimal != -1)
+        if (selectedAnimal != -1){
             DraggableManager.instance.SetAnimal(null);
+			prevSelectedAnimal=selectedAnimal;
+		}
         selectedAnimal = -1;
         int numCompletedAnimal;
         for(numCompletedAnimal=0;numCompletedAnimal< animals.Length; ++numCompletedAnimal)

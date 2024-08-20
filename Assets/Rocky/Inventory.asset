@@ -13,7 +13,6 @@ MonoBehaviour:
   m_Name: Inventory
   m_EditorClassIdentifier: 
   brisks:
-  - {fileID: 6211014011679162431, guid: fec01b9e8a7cfae408f5b1129b65c9c2, type: 3}
   - {fileID: 6715901716787494989, guid: 17293267c03297b4eab9d5d87991e250, type: 3}
   - {fileID: 9159608681632645624, guid: 37ac799664a98e24fb0d6c1a49c80c4d, type: 3}
   - {fileID: 5089849095768626382, guid: b0b6d92148843b84b9214b9a43494e60, type: 3}
