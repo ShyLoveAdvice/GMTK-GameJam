@@ -191,7 +191,7 @@ public class DraggableManager : Singleton<DraggableManager>
         {
             SelectedObject = null;
         }
-		else if(Input.GetKey(KeyCode.Return)){
+		else if(Input.GetKeyDown(KeyCode.Return)){
 			animal.completed=true;
 			GameManager.instance.OnAnimalCompleted();
 		}

@@ -44,11 +44,16 @@ public class GameManager : Singleton<GameManager>
 		}
 	}
 	public void OnAnimalCompleted(){
-		for(int i=0;i<animals.Length;++i){
+		int i=0;
+		for(;i<animals.Length;++i){
 			if(!animals[i].completed)
-				return;
+				break;
 		}
-		FadeCloseBGImg(0,1);
+		if(i%5==0){
+			ChangeToFarCamera();
+		}
+		if(i==15)
+			FadeCloseBGImg(0,1);
 	}
     void SelectAnimal(Animal animal)
     {
@@ -115,6 +120,7 @@ public class GameManager : Singleton<GameManager>
     }
     void FadeCloseBGImg(float beginAlpha, float endAlpha)
     {
+		if(closeBGImg.color.a==endAlpha) return;
         if (fadeCoroutine != null)
             StopCoroutine(fadeCoroutine);
         fadeCoroutine = StartCoroutine(FadeCloseBGImage_Coroutine(beginAlpha, endAlpha));
@@ -132,6 +138,8 @@ public class GameManager : Singleton<GameManager>
             color.a += dalpha;
             closeBGImg.color = color;
         }
+		color.a=endAlpha;
+		closeBGImg.color=color;
         fadeCoroutine = null;
     }
     private void Start()
