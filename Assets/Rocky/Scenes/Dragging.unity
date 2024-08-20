@@ -402,7 +402,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &28385993
@@ -770,7 +770,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &934687613
@@ -914,7 +914,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1013414317
@@ -2026,7 +2026,7 @@ SpriteRenderer:
   m_Size: {x: 0.75, y: 0.75}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1001 &4860603491712304915
@@ -2155,12 +2155,32 @@ PrefabInstance:
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: closeCamSize
-      value: 6.5
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
       propertyPath: initialMoney
       value: 300000
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: farCamPosOffset.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: farCamPosOffset.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: closeCamPosOffset.x
+      value: -1.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
+        type: 3}
+      propertyPath: closeCamPosOffset.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8807731969639323821, guid: 01e61cd7d489a7a438323227f6359bf7,
         type: 3}
