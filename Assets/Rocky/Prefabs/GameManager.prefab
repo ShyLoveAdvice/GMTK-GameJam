@@ -1329,6 +1329,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5107081295729257220}
     m_Modifications:
+    - target: {fileID: 268995721206764975, guid: 0649270632b3f604296f0407de916d2f,
+        type: 3}
+      propertyPath: type
+      value: 22
+      objectReference: {fileID: 0}
     - target: {fileID: 3698620885839060295, guid: 0649270632b3f604296f0407de916d2f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1464,6 +1469,11 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 21300000, guid: 1db36bd0a4814464f8805cd9d409460e,
         type: 3}
+    - target: {fileID: 6133754062462119602, guid: 8512762d8b82b3545aaf391f6905c181,
+        type: 3}
+      propertyPath: type
+      value: 26
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -1903,6 +1913,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3620206073358494478, guid: b3a54d37f0c2c434dab495d496eb466f,
+        type: 3}
+      propertyPath: type
+      value: 20
+      objectReference: {fileID: 0}
     - target: {fileID: 5483815899588660663, guid: b3a54d37f0c2c434dab495d496eb466f,
         type: 3}
       propertyPath: m_Name
@@ -2006,6 +2021,11 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 5107081295729257220}
     m_Modifications:
+    - target: {fileID: 709349040180552663, guid: d3630817fca40684ebeaf4d954191237,
+        type: 3}
+      propertyPath: type
+      value: 24
+      objectReference: {fileID: 0}
     - target: {fileID: 4028827968817214291, guid: d3630817fca40684ebeaf4d954191237,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2130,6 +2150,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4297606774784952563, guid: f3ae4d4a70054784fa418149a3687c76,
+        type: 3}
+      propertyPath: type
+      value: 16
+      objectReference: {fileID: 0}
     - target: {fileID: 7979278830387407739, guid: f3ae4d4a70054784fa418149a3687c76,
         type: 3}
       propertyPath: m_Name
@@ -2215,6 +2240,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: horse
       objectReference: {fileID: 0}
+    - target: {fileID: 5209814009711290854, guid: 0f48f9ca328fdcf428bc5fe85e2d5285,
+        type: 3}
+      propertyPath: type
+      value: 28
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects:
     - {fileID: 3482219151644506735, guid: 0f48f9ca328fdcf428bc5fe85e2d5285, type: 3}
@@ -2239,6 +2269,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: hipo
+      objectReference: {fileID: 0}
+    - target: {fileID: 8517833655151894975, guid: bfacc861c7fb9c34fa1fbca15cd4468c,
+        type: 3}
+      propertyPath: type
+      value: 19
       objectReference: {fileID: 0}
     - target: {fileID: 9149866461965886412, guid: bfacc861c7fb9c34fa1fbca15cd4468c,
         type: 3}
@@ -2977,6 +3012,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7217721040948131747, guid: b91cc33669195f14097ab6549e4a4ef1,
+        type: 3}
+      propertyPath: type
+      value: 18
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3402,6 +3442,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: parrot
       objectReference: {fileID: 0}
+    - target: {fileID: 8030318968741384774, guid: 04f58120069a98b458a27cf0644f06b7,
+        type: 3}
+      propertyPath: type
+      value: 27
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3470,6 +3515,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2817309140675687558, guid: 606f111bf6c1a0e4d96a0b33c0b5325e,
+        type: 3}
+      propertyPath: type
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4549702600505848381, guid: 606f111bf6c1a0e4d96a0b33c0b5325e,
         type: 3}
